@@ -54,4 +54,6 @@ vi9 = VanImage.create(image_id: i9.id, van_id: v3.id)
 
 u1 = User.create(username: "Sara", password: "password", address: "123 ABC", email: "abc@email.com")
 
+o1 = Order.create()
+
 # r1 = Review.create(user_id: u1.id, van_id: v1.id, comment: 'We loved the Rambler Experience! We felt free as a bird with our sweet house on wheels. The van is superpractical and has all amenities you’ll need. Would definately recommend this adventurous and colourful experience!')
