@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_192943) do
+ActiveRecord::Schema.define(version: 2020_12_23_205214) do
 
   create_table "images", force: :cascade do |t|
     t.string "img_url"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2020_12_23_192943) do
     t.integer "user_id"
     t.integer "van_id"
     t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "saved_vans", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "van_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,6 +67,9 @@ ActiveRecord::Schema.define(version: 2020_12_23_192943) do
     t.boolean "available"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "location"
+    t.integer "rates"
+    t.boolean "pet_friendly"
   end
 
 end

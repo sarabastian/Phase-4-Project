@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :van_images, only: [:show, :index]
       resources :orders, only: [:index, :show]
       resources :reviews
+      resources :saved_vans
 
     end
   end
