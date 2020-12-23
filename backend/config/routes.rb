@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :images, only: [:show, :index]
       resources :van_images, only: [:show, :index]
       resources :reviews
+      resources :saved_vans
 
     end
   end
