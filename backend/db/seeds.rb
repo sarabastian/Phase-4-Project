@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+User.destroy_all
 Van.destroy_all
 Image.destroy_all
 VanImage.destroy_all
@@ -80,5 +80,6 @@ vi13 = VanImage.create(image_id: i13.id, van_id: v5.id)
 vi14 = VanImage.create(image_id: i14.id, van_id: v5.id)
 vi15 = VanImage.create(image_id: i15.id, van_id: v5.id)
 
+u1 = User.create(username: "Sara", password: "password", address: "123 ABC", email: "abc@email.com")
 
 # r1 = Review.create(user_id: u1.id, van_id: v1.id, comment: 'We loved the Rambler Experience! We felt free as a bird with our sweet house on wheels. The van is superpractical and has all amenities you’ll need. Would definately recommend this adventurous and colourful experience!')
