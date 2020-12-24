@@ -22,7 +22,7 @@ class Search extends React.Component {
         *
        </span>
       </label>
-      <select class="select form-control" id="select" name="select">
+      <select class="select form-control" id="select" name="select" onClick={(e) => this.props.search(e)}>
        <option selected="selected" value="">
        </option>
        <option value="Austin">
