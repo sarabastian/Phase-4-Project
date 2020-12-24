@@ -8,7 +8,7 @@ class VanCard extends React.Component {
         return(
 <CardDeck>
 <Card className="card-img-top img-fluid">
-  <Card.Img variant="top" src={this.props.van.images[0].img_url} />
+  <Card.Img variant="top" src={this.props.van.images[0].img_url} style={{ display: 'inline-block', width: '100%'}}/>
   <Card.Body>
     <Card.Title>{this.props.van.name}</Card.Title>
     <Card.Text>

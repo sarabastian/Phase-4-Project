@@ -26,6 +26,11 @@ class HomePage extends React.Component {
         })
     }
 
+    displaySearch =(e) => {
+        let displayVan = this.state.vans.filter(van => van.location.toLowerCase().includes(this.state.searchTerms.location.toLowerCase()))
+        return displayVan
+    }
+
 
     render() {
         // let vans = this.state.vans.filter(van => van.location.includes(this.state.searchTerms.location))
