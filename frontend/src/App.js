@@ -1,15 +1,21 @@
+import React from "react";
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
-import Login from './Components/LoginForm/Login'
+// import { Route } from "react-router";
+import HomePage from './Components/HomePage'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+
+class App extends React.Component {
+  render () {
+
+  
   return (
     <div className="App">
-      <Navbar/>
-      <Login/>
+      <HomePage />
 
     </div>
-  );
-}
 
+    );
+  }
+}
 export default App;

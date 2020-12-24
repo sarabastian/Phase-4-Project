@@ -4,3 +4,20 @@
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
+
+/* 
+.input-group{
+  width: 50% 
+} */
+
+.control-label{
+  text-align: left
+}
+
+.card-img-top {
+  width: 10%;
+  height: 15vw;
+  object-fit: cover;
+  
+} 
+
