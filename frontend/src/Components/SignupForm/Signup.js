@@ -1,19 +1,19 @@
 import React from 'react';
-import './Login.css';
+import './Signup.css';
 import { Button, Form, FormGroup, Modal }
     from 'react-bootstrap';
 // import { MDBIcon, MDBContainer, MDBBtn } from 'mdbreact';
 import { FacebookLoginButton } from 'react-social-login-buttons';
 
-const Login = (props) => {
+const Signup = (props) => {
     return (
         <section>
             <Modal show={props.show} onHide={props.onHide} >
-            <Form className="login-form">
+            <Form className="Signup-form">
                 <h1>
                     {/* <span className="font-weight-bold">VanBnB</span> */}
                 </h1>
-                <h2 className="text-center">Welcome</h2>
+                <h2 className="text-center">Sign up</h2>
                 <FormGroup>
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" placeholder="Email"/>
@@ -33,4 +33,4 @@ const Login = (props) => {
     )
 }
 
-export default Login;
+export default Signup;

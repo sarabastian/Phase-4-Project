@@ -12,6 +12,7 @@ class HomePage extends React.Component {
             location: '',
         }
     }
+
     componentDidMount() {
         fetch('http://localhost:3001/api/v1/vans')
             .then(r => r.json())
@@ -33,8 +34,8 @@ class HomePage extends React.Component {
         // let vans = this.state.vans.filter(van => van.location.includes(this.state.searchTerms.location))
         return (
             <div>
-                <Navbar/>
-                <Login/>
+                <Navbar />
+
                 <Search  search ={this.handleSearch} />
                 <VanContainer vans={this.state.vans} />
             </div>
