@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card, CardDeck, Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
 class VanCard extends React.Component {
     
     render(){
 
         return(
-<CardDeck>
+
 <Card className="card-img-top img-fluid">
   <Card.Img variant="top" src={this.props.van.images[0].img_url} style={{ display: 'inline-block', width: '100%'}}/>
   <Card.Body>
@@ -17,7 +17,7 @@ class VanCard extends React.Component {
     <Button variant="primary">See More</Button>
   </Card.Body>
 </Card>
-</CardDeck>
+
         )
     }
 }
