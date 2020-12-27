@@ -4,21 +4,35 @@ import VanContainer from './VanContainer'
 
 class Search extends React.Component {
 
+    state = {
+        vans: [],
+        location: '',
+        showComponent: false
+    }
 
-
-
-
+    componentDidMount() {
+        fetch('http://localhost:3001/api/v1/vans')
+            .then(r => r.json())
+            .then(vans => this.setState({ vans }))
+    }
     handleSearch = (e) => {
         this.setState({
-            searchTerms: {
+         
                 location: e.target.value
-            }
+            
         })
     }
 
+    onButtonClick = (e) => {
+        e.preventDefault()
+        this.setState({
+            showComponent: true
+        })
+    }
 
     render() {
-        // let vans = this.state.vans.filter(van => van.location.includes(this.state.searchTerms.location))
+        let vans = this.state.vans.filter(van => van.location.toLowerCase()===this.state.location.toLowerCase())
+
 
         return (
 
@@ -27,16 +41,16 @@ class Search extends React.Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-2 col-sm-2 col-xs-12">
-                            <form method="get">
+                            <form method="get" >
                                 <div className="form-group">
-                                    <label className="control-label requiredField" for="select">
+                                    <label className="control-label requiredField" htmlFor="select">
                                         Select a Location
                                     <span className="asteriskField">
                                             *
                                     </span>
                                     </label>
-                                    <select className="select form-control" id="select" name="select" >
-                                        <option selected="selected" value="" onChange={(e) => this.handleSearch(e)}>
+                                    <select className="select form-control" id="select" name="select" onChange={(e) => this.handleSearch(e)} >
+                                        <option defaultValue="selected" >
                                         </option>
                                         <option value="Austin">
                                             Austin
@@ -50,7 +64,7 @@ class Search extends React.Component {
                                     </select>
                                 </div>
                                 <div className="form-group ">
-                                    <label className="control-label " for="date">
+                                    <label className="control-label" htmlFor="date">
                                         Departure Date
                                     </label>
                                     <div className="input-group">
@@ -62,7 +76,7 @@ class Search extends React.Component {
                                     </div>
                                 </div>
                                 <div className="form-group ">
-                                    <label className="control-label " for="date1">
+                                    <label className="control-label " htmlFor="date1">
                                         Return Date
                                     </label>
                                     <div className="input-group">
@@ -75,8 +89,8 @@ class Search extends React.Component {
                                 </div>
                                 <div className="form-group" >
                                     <div>
-                                        <button className="btn btn-custom " name="submit" type="submit" >
-                                            Search
+                                        <button className="btn btn-custom " name="submit" type="submit" onClick={(e) => this.onButtonClick(e)} >
+                                            Search 
                                         </button>
                                     </div>
                                 </div>
@@ -84,6 +98,8 @@ class Search extends React.Component {
                         </div>
                     </div>
                 </div>
+                {this.state.showComponent ? <VanContainer vans={vans}/> : null}
+
             </div>
 
         );
