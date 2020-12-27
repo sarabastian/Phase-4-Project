@@ -6,12 +6,12 @@ import Login from './LoginForm/Login';
 
 class HomePage extends React.Component {
 
-state = {
-    searchTerms: {
-        location: '',
-    },
-    vans: []
-}
+    state = {
+        vans: [],
+        searchTerms: {
+            location: '',
+        }
+    }
 
     componentDidMount() {
         fetch('http://localhost:3001/api/v1/vans')
@@ -23,9 +23,9 @@ state = {
     render() {
         return (
             <div>
-                <Navbar/>
-                <Login/>
-                <Search />
+                <Navbar />
+
+                <Search  search ={this.handleSearch} />
                 <VanContainer vans={this.state.vans} />
             </div>
     )

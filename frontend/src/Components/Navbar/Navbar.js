@@ -1,15 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { MenuItems } from './MenuItems';
 import './Navbar.css';
-import { Button, Form, FormGroup, Label, Input }
-    from 'react-bootstrap';
+import Login from '../LoginForm/Login';
+import Signup from '../SignupForm/Signup';
 
-class Navbar extends Component {
-    render() {
+
+const Navbar = () => {
+    const [show, setShow] = useState(false);
+    const [show1, setShow1] = useState(false);
+
+    const handleClose1 = () => setShow1(false);
+    const handleShow1 = () => setShow1(true);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
         return (
+            <section>
             <nav className="NavbarItems">
                 <h1 className="navbar-logo">
-                    <i className="fas fa-shuttle-van">VanBnB</i>
+                    <i className="fas fa-shuttle-van">Vanbnb</i>
                 </h1>
                 <div className="menu-icon">
                     
@@ -17,29 +26,32 @@ class Navbar extends Component {
                 <ul className="nav-menu">
                     {MenuItems.map((item, index) => {
                         return (
-                        <li key={index}>
-                            <a className={item.cName} href={item.url}>
-                                {item.title}
-                            </a>
-                        </li>
-                        )
-                        })}
-                        <li>
-                            <a className="nav-links" href="#">
-                                Sign up
-                            </a>
-                        </li>
+                      <li key={index}>
+                        <a className={item.cName} href={item.url}>
+                            {item.title}
+                        </a>
+                      </li>
+                      )
+                    })}
+                    <li>
+                        <a className="nav-links" href="#" onClick={handleShow1} >
+                            Sign up
+                        </a>
+                    </li>
                         
-                        <li>
-                            <a className="nav-links" href="#">
-                                Login
-                            </a>
-                        </li>
-                </ul>
-            </nav>
+                    <li>
+                          <a className="nav-links" href="#" onClick={handleShow} >
+                            Login
+                          </a>
+                    </li>
+              </ul>
+        </nav>
+        <Login show={show} onHide={handleClose}  />
+        <Signup show={show1} onHide={handleClose1} />
+        </section>
         
-        )
-    }
+    )
 }
+
 
 export default Navbar;
