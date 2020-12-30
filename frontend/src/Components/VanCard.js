@@ -44,3 +44,4 @@ class VanCard extends React.Component {
 }
 
 export default VanCard;
+

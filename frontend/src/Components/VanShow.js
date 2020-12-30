@@ -14,10 +14,10 @@ class VanShow extends React.Component {
         >
 
         </div>
-        <Modal show={this.props.show} onHide={this.props.closeModal}
+        <Modal dialogClassName="my-modal" show={this.props.show} onHide={this.props.closeModal}
           size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered>
+          
+        aria-labelledby="example-custom-modal-styling-title">
           <Modal.Header closeButton>
             <Modal.Title>{this.props.van.name}</Modal.Title>
           </Modal.Header>
@@ -25,36 +25,36 @@ class VanShow extends React.Component {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={this.props.van.images[0]}
+                  src={this.props.van.images[0].img_url}
                   alt = 'First Slide'
                 />
                 <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                  <h3>{this.props.van.description}</h3>
+                 
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={this.props.van.images[1]}
+                  src={this.props.van.images[1].img_url}
                   alt='Second Slide'
                 />
 
                 <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3>{this.props.van.pet_friendly ? 'Pet Friendly' : 'Not Pet Friendly'}</h3>
+                  
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className="d-block 1-100"
-                  src={this.props.van.images[2]}
+                  src={this.props.van.images[2].img_url}
                   alt = 'Third Slide'
                 />
 
                 <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  <h3>{this.props.van.rates}/day</h3>
+                  
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
@@ -65,7 +65,9 @@ class VanShow extends React.Component {
 
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.props.closeModal}>Close</Button>
+            <Button variant="info">Book Now</Button>
+            <Button variant="info" onClick={this.props.closeModal}>Close</Button>
+            
           </Modal.Footer>
         </Modal>
       </>
@@ -76,3 +78,4 @@ class VanShow extends React.Component {
 
 
 export default VanShow;
+
