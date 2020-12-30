@@ -3,6 +3,7 @@ import Search from './Search'
 // import VanContainer from './VanContainer'
 import Navbar from './Navbar/Navbar';
 import Login from './LoginForm/Login';
+import About from './About';
 
 class HomePage extends React.Component {
 
@@ -15,6 +16,7 @@ class HomePage extends React.Component {
                 <Navbar />
 
                 <Search  />
+                <About />
                 
             </div>
         )
