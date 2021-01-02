@@ -4,6 +4,7 @@ import Search from './Search'
 import Navbar from './Navbar/Navbar';
 import Login from './LoginForm/Login';
 import About from './About';
+import Reviews from './Reviews'
 
 class HomePage extends React.Component {
 
@@ -17,6 +18,7 @@ class HomePage extends React.Component {
 
                 <Search  />
                 <About />
+                <Reviews />
                 
             </div>
         )

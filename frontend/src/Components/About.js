@@ -8,30 +8,32 @@ class About extends React.Component {
             <Card className="text-center">
                 <Card.Header>How it Works</Card.Header>
                 <Card.Body>
-                    <Card.Title>A Trusted and Easy Process</Card.Title>
+                    <Card.Title>An Easy and Trusted Process</Card.Title>
                     <Card.Text>
                         <Figure>
                             <Figure.Image
                                 width={171}
                                 height={180}
                                 alt="171x180"
-                                src="https://cdn3.iconfinder.com/data/icons/local-tourism/512/tourism-travel-21-256.png"
+                                src="https://www.flaticon.com/svg/static/icons/svg/1559/1559866.svg"
                             />
                             <Figure.Caption>
                               Browse vans based on your adventure dates and location
                             </Figure.Caption>
                         </Figure>
+                        <br/>
                         <Figure>
                             <Figure.Image
                                 width={171}
                                 height={180}
                                 alt="171x180"
-                                src="https://cdn0.iconfinder.com/data/icons/travel-outline-19/64/Booking_1-256.png"
+                                src="https://www.flaticon.com/svg/static/icons/svg/1719/1719435.svg"
                             />
                             <Figure.Caption>
                                 Book Your Van
                             </Figure.Caption>
                         </Figure>
+                        <br/>
                         <Figure>
                             <Figure.Image
                                 width={171}
@@ -43,12 +45,13 @@ class About extends React.Component {
                                 Pick-up van - Happy Travels!
                             </Figure.Caption>
                         </Figure>
+                        <br/>
                         <Figure>
                             <Figure.Image
                                 width={171}
                                 height={180}
                                 alt="171x180"
-                                src="https://cdn4.iconfinder.com/data/icons/network-security-4/512/N_T_1142Artboard_1-256.png"
+                                src="https://www.flaticon.com/svg/static/icons/svg/1967/1967728.svg"
                             />
                             <Figure.Caption>
                                 Return Van 
