@@ -19,6 +19,7 @@ class About extends React.Component {
                             />
                             <Figure.Caption>
                               Browse vans based on your adventure dates and location
+                         
                             </Figure.Caption>
                         </Figure>
                         <br/>
@@ -30,7 +31,7 @@ class About extends React.Component {
                                 src="https://www.flaticon.com/svg/static/icons/svg/1719/1719435.svg"
                             />
                             <Figure.Caption>
-                                Book Your Van
+                                <br></br>Book Your Van
                             </Figure.Caption>
                         </Figure>
                         <br/>
@@ -54,13 +55,13 @@ class About extends React.Component {
                                 src="https://www.flaticon.com/svg/static/icons/svg/1967/1967728.svg"
                             />
                             <Figure.Caption>
-                                Return Van 
+                                Return Van & Leave Us a Review
                             </Figure.Caption>
                         </Figure>
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    
                 </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
+                
             </Card>
         )
     }

@@ -19,6 +19,7 @@ class Reviews extends React.Component {
         console.log(this.state.reviews.forEach(review => review.comment))
     return (
         <Carousel>
+            <h2>Check out some of our reviews</h2>
             <Carousel.Item>
                 <img
                     className="d-block w-100"

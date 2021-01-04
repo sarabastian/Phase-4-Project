@@ -1,6 +1,7 @@
 import React from "react";
 // import { Form, Button, Col } from "react-bootstrap";
 import VanContainer from './VanContainer'
+import Jumbotron from 'react-bootstrap/Jumbotron'
 
 class Search extends React.Component {
 
@@ -32,11 +33,13 @@ class Search extends React.Component {
 
     render() {
         let vans = this.state.vans.filter(van => van.location.toLowerCase()===this.state.location.toLowerCase())
-
+   
 
         return (
 
-
+<Jumbotron >
+    <h2>Find your Van Rental</h2>
+    <br></br>
             <div className="bootstrap-iso">
                 <div className="container-fluid">
                     <div className="row">
@@ -101,6 +104,7 @@ class Search extends React.Component {
                 {this.state.showComponent ? <VanContainer vans={vans}/> : null}
 
             </div>
+            </Jumbotron>
 
         );
     }

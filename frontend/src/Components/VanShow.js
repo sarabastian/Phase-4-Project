@@ -53,7 +53,7 @@ class VanShow extends React.Component {
                 />
 
                 <Carousel.Caption>
-                  <h3>{this.props.van.rates}/day</h3>
+                  <h3>{this.props.van.size}</h3>
                   
                 </Carousel.Caption>
               </Carousel.Item>

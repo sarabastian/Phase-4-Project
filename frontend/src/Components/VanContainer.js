@@ -6,7 +6,7 @@ class VanContainer extends React.Component {
 
     render() {
         return (
-            <CardColumns itemsPerRow={3}>
+            <CardColumns itemsPerRow={2}>
                 {this.props.vans.map(van => <VanCard van={van} key={van.id} />)}
             </CardColumns>
         )

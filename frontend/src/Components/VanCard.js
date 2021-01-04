@@ -23,12 +23,12 @@ class VanCard extends React.Component {
 <Card className="card-img-top img-fluid">
   <Card.Img variant="top" src={this.props.van.images[0].img_url} style={{ display: 'inline-block', width: '100%'}}/>
   <Card.Body>
-    <Card.Title>{this.props.van.name}</Card.Title>
+    <Card.Title><em>{this.props.van.name}</em></Card.Title>
     <Card.Text>
    {this.props.van.description}
    </Card.Text>
    <Card.Text> 
-   Rates: ${this.props.van.rates}/day
+  <br></br> ${this.props.van.rates}/day
     </Card.Text>
     <Button onClick={() => this.openModal()} variant="primary">See More </Button>
     {this.state.isOpen ? <VanShow openModal={this.openModal} closeModal={this.closeModal}
