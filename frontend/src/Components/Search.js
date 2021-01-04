@@ -2,6 +2,8 @@ import React from "react";
 // import { Form, Button, Col } from "react-bootstrap";
 import VanContainer from './VanContainer'
 import Jumbotron from 'react-bootstrap/Jumbotron'
+import About from './About';
+
 
 class Search extends React.Component {
 
@@ -36,14 +38,16 @@ class Search extends React.Component {
    
 
         return (
+            <div>
+<Jumbotron > 
+  
 
-<Jumbotron >
-    <h2>Find your Van Rental</h2>
-    <br></br>
             <div className="bootstrap-iso">
+            <h3>Find your Van Rental</h3>
                 <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-2 col-sm-2 col-xs-12">
+                    {/* <div className="row"> */}
+                    
+                        <div className="col-md-6 col-sm-6 col-xs-12">
                             <form method="get" >
                                 <div className="form-group">
                                     <label className="control-label requiredField" htmlFor="select">
@@ -92,19 +96,29 @@ class Search extends React.Component {
                                 </div>
                                 <div className="form-group" >
                                     <div>
-                                        <button className="btn btn-custom " name="submit" type="submit" onClick={(e) => this.onButtonClick(e)} >
+                                        <button className="btn btn-custom " name="submit" type="submit" onClick={(e) => this.onButtonClick(e)}  >
                                             Search 
                                         </button>
                                     </div>
                                 </div>
                             </form>
+                            
                         </div>
-                    </div>
+                    {/* </div> */}
+                    
                 </div>
-                {this.state.showComponent ? <VanContainer vans={vans}/> : null}
-
+               <div>
+               
+                </div>
             </div>
-            </Jumbotron>
+       
+            </Jumbotron> 
+           
+             {this.state.showComponent ? <VanContainer vans={vans} /> : <About /> } 
+            
+
+</div>
+          
 
         );
     }

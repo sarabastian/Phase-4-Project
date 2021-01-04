@@ -16,19 +16,20 @@ class Reviews extends React.Component {
     render() {
 
      
-        console.log(this.state.reviews.forEach(review => review.comment))
+        
     return (
         <Carousel>
+            <br></br>
             <h2>Check out some of our reviews</h2>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
-                    // src={this.state.reviews.van.images[0].img_url}
-                    alt="First slide"
+                   className="d-block w-100"
+                   src="holder.js/800x400?text=Third slide&bg=20232a"
+                   alt="Third slide"
                 />
                 <Carousel.Caption>
                     <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <p>{this.state.reviews.map(r => r.comment)}</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>

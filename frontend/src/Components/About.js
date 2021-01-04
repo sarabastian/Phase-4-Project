@@ -1,7 +1,12 @@
 import React from "react";
-import { Card, Button, Figure } from "react-bootstrap"
+import { Card, Figure } from "react-bootstrap"
+import Reviews from './Reviews'
 
 class About extends React.Component {
+
+    state = {
+        showReviews: true
+    }
 
     render() {
         return (
@@ -61,8 +66,10 @@ class About extends React.Component {
                     </Card.Text>
                     
                 </Card.Body>
-                
+                <Reviews />
             </Card>
+            
+            
         )
     }
 }

@@ -42,10 +42,31 @@
   height: 100%;
 } */ 
 
-.col-md-2{
-  height: 100%
+/* .col-md-4{
+  height: 50%;
+  width: 50%
+} */
+
+.bootstrap-iso {
+  width: 450px;
+  height: 350px;
+  padding: 30px;
+  border-radius: 15px 
+  /* margin: left */
+
 }
 
-.jumbotron{
+.card-columns{
+  width: 1000px;
+  height: 1000px
+}
+
+/* .jumbotron{
   background-color:transparent !important; 
+} */
+
+.jumbotron {
+  height: 600px;
+  background-image: url("https://media.afar.com/uploads/images/post_images/images/ZQ8MbglX3Q/original_shutterstock_1017257911.jpg");
+  background-size: cover
 }
