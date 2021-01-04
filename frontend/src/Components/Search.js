@@ -39,7 +39,7 @@ class Search extends React.Component {
 
         return (
             <div>
-<Jumbotron > 
+<Jumbotron className="jumbo-1"> 
   
 
             <div className="bootstrap-iso">

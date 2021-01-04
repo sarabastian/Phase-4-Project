@@ -30,7 +30,7 @@ class VanCard extends React.Component {
    <Card.Text> 
   <br></br> ${this.props.van.rates}/day
     </Card.Text>
-    <Button onClick={() => this.openModal()} variant="primary">See More </Button>
+    <Button onClick={() => this.openModal()} variant="info">Explore More </Button>
     {this.state.isOpen ? <VanShow openModal={this.openModal} closeModal={this.closeModal}
                                     show={this.state.isOpen}
                                     key={this.props.van.id}

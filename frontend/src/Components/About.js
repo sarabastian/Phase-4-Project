@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Figure } from "react-bootstrap"
+import { Card, Figure, Jumbotron } from "react-bootstrap"
 import Reviews from './Reviews'
 
 class About extends React.Component {
@@ -62,12 +62,18 @@ class About extends React.Component {
                             <Figure.Caption>
                                 Return Van & Leave Us a Review
                             </Figure.Caption>
+                           
                         </Figure>
+                        <br></br>
+                        <Jumbotron>
+                            <Reviews />
+                        </Jumbotron>
                     </Card.Text>
-                    
+                
                 </Card.Body>
-                <Reviews />
+             
             </Card>
+       
             
             
         )
