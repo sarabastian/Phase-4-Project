@@ -10,6 +10,8 @@ class Search extends React.Component {
     state = {
         vans: [],
         location: '',
+        departure: '',
+        return: '',
         showComponent: false
     }
 
@@ -23,6 +25,17 @@ class Search extends React.Component {
          
                 location: e.target.value
             
+        })
+    }
+    setStartDate = (e) => {
+        this.setState({
+            departure: e.target.value
+        })
+    }
+
+    setReturnDate = (e) => {
+        this.setState({
+            return: e.target.value
         })
     }
 
@@ -45,7 +58,7 @@ class Search extends React.Component {
             <div className="bootstrap-iso">
             <h3>Find your Van Rental</h3>
                 <div className="container-fluid">
-                    {/* <div className="row"> */}
+                    
                     
                         <div className="col-md-6 col-sm-6 col-xs-12">
                             <form method="get" >
@@ -74,12 +87,14 @@ class Search extends React.Component {
                                     <label className="control-label" htmlFor="date">
                                         Departure Date
                                     </label>
+                                    
                                     <div className="input-group">
                                         <div className="input-group-addon">
                                             <i className="fa fa-calendar">
                                             </i>
                                         </div>
-                                        <input className="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                                        <input className="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" 
+                                                 onChange={(e) => this.setStartDate(e)}/>
                                     </div>
                                 </div>
                                 <div className="form-group ">
@@ -91,7 +106,7 @@ class Search extends React.Component {
                                             <i className="fa fa-calendar">
                                             </i>
                                         </div>
-                                        <input className="form-control" id="date1" name="date1" placeholder="MM/DD/YYYY" type="text" />
+                                        <input  onChange={(e) => this.setReturnDate(e)}className="form-control" id="date1" name="date1" placeholder="MM/DD/YYYY" type="text" />
                                     </div>
                                 </div>
                                 <div className="form-group" >
@@ -104,7 +119,7 @@ class Search extends React.Component {
                             </form>
                             
                         </div>
-                    {/* </div> */}
+                    
                     
                 </div>
                <div>
@@ -114,7 +129,8 @@ class Search extends React.Component {
        
             </Jumbotron> 
            
-             {this.state.showComponent ? <VanContainer vans={vans} /> : <About /> } 
+             {this.state.showComponent ? <VanContainer vans={vans} departure={this.state.departure}
+                                                       return={this.state.return}/> : <About /> } 
             
 
 </div>

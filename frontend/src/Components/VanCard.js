@@ -37,6 +37,8 @@ class VanCard extends React.Component {
             show={this.state.isOpen}
             key={this.props.van.id}
             van={this.props.van}
+            departure={this.props.departure}
+            return={this.props.return}
 
           /> : null}
         </Card.Body>
