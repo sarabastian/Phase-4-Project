@@ -1,6 +1,5 @@
 import React from 'react';
 import { Modal, Button, Carousel, Badge, Tab, Nav, Col, Row, ListGroup } from 'react-bootstrap';
-import OrderForm from './OrderForm';
 import { Link } from "react-router-dom";
 
 class VanShow extends React.Component {

@@ -5,7 +5,8 @@ import './App.css';
 import HomePage from './components/HomePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VanShow from './components/VanShow';
-import OrderForm from './components/OrderForm'
+import OrderForm from './components/OrderForm';
+import Login from './components/LoginForm/Login'
 
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/book" component={OrderForm} />
+            <Route path="/login" component={Login} />
           </Switch>
        </Router>
             
