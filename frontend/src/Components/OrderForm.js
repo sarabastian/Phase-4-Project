@@ -1,7 +1,27 @@
 import React from "react";
-import { Form, Button, Accordion, Card, Row, Col } from 'react-bootstrap';
+import { Form, Button, Accordion, Card, Row, Col, FormGroup, Figure } from 'react-bootstrap';
+import { FacebookLoginButton } from 'react-social-login-buttons';
 
 class OrderForm extends React.Component {
+
+    state = {
+        order: []
+    }
+
+handleSubmit = () => {
+    fetch('http://localhost:3001/api/v1/orders', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            // user_id: user_id,
+            van_id: this.props.location.state.van.id
+        })
+    })
+    .then(r => r.json())
+    .then(order => console.log(order))
+}
 
 
 
@@ -10,8 +30,9 @@ class OrderForm extends React.Component {
         // const date = getDateFromFormat()
         return (
 
-            <Form>
+            <Form className="order-form">
                 <Accordion defaultActiveKey="0">
+                    
                     <Card>
                         <Card.Header>
                             <Accordion.Toggle as={Button} variant="link" eventKey="0">
@@ -22,28 +43,60 @@ class OrderForm extends React.Component {
                             <Card.Body>
 
 
-                                <Row>
-                                    <Col xs={4}>
-                                        <Form.Control placeholder="First name" />
-                                    </Col >
-                                    <Col xs={4}>
-                                        <Form.Control placeholder="Last name" />
-                                    </Col>
-                                </Row>
-                                <Form.Group controlId="formBasicEmail" >
-                                    <br></br>
-                                    <Form.Control type="email" placeholder="Enter email" />
-                                    <Form.Text className="text-muted">
-                                        We'll never share your email with anyone else.
-    </Form.Text>
-                                </Form.Group>
+
+                <Form className="signup-order">
+                
+                <h2 className="text-center">Sign up</h2>
+                <FormGroup>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" placeholder="Email"/>
+                </FormGroup>
+                <FormGroup>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password"/>
+                </FormGroup>
+                <Button className="btn-lg btn-dark btn-block">Log in</Button>
+                <div className="text-center pt-3">
+                    Or continue with social media
+                </div>
+                <FacebookLoginButton/>
+            </Form>
 
                                 <Form.Group id="formGridCheckbox">
                                     <Form.Check type="checkbox"
                                         label="I certify that I am at least 25 years old at the time of rental and have a valid drivers license" />
                                 </Form.Group>
-
+                              
+                            
+                              
+                             
+                                    
+                                <Form className="login-order">
+                <h1>
+                  
+                </h1>
+                <h4 className="text-center">Already have an account?</h4>
+                <FormGroup>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" placeholder="Email"/>
+                </FormGroup>
+                <FormGroup>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password"/>
+                </FormGroup>
+                <Button className="btn-lg btn-dark btn-block">Log in</Button>
+                <div className="text-center pt-3">
+                    Or continue with social media
+                </div>
+                <FacebookLoginButton/>
+                
+            </Form>
+            
+          
+            
+         
                             </Card.Body>
+                          
                         </Accordion.Collapse>
                     </Card>
                     <Card>
@@ -188,7 +241,7 @@ class OrderForm extends React.Component {
                     </Card>
                     </Accordion>
                    
-                <Card className="card-img-top img-fluid">
+                <Card className="van-order-card"  style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={this.props.location.state.van.images[0].img_url} style={{ display: 'inline-block', width: '100%' }} />
                     <Card.Body>
                         <Card.Title><em>{this.props.location.state.van.name}</em></Card.Title>
