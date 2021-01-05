@@ -37,7 +37,7 @@ class VanCard extends React.Component {
             show={this.state.isOpen}
             key={this.props.van.id}
             van={this.props.van}
-           
+
           /> : null}
         </Card.Body>
       </Card>

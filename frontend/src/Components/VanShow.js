@@ -82,6 +82,9 @@ class VanShow extends React.Component {
                     <Nav.Item>
                       <Nav.Link eventKey="third">Rates</Nav.Link>
                     </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="fourth">Reviews</Nav.Link>
+                    </Nav.Item>
                   </Nav>
                 </Col>
                 <Col sm={9}>
@@ -94,6 +97,9 @@ class VanShow extends React.Component {
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
                       ${this.props.van.rates}/day
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="fourth">
+                      <em>{this.props.van.reviews.map(r => r.comment)}</em>
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>
