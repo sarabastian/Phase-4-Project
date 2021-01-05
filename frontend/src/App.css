@@ -10,6 +10,15 @@
   width: 50% 
 } */
 
+.signup-form {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 10px;
+  /* margin-left: 100px; */
+  height: 100%;
+}
+
 .control-label{
   text-align: left
 }
@@ -92,7 +101,38 @@
 
 
 .jumbo-1 {
-  height: 600px;
+  height: 700px;
   background-image: url("https://media.afar.com/uploads/images/post_images/images/ZQ8MbglX3Q/original_shutterstock_1017257911.jpg");
   background-size: cover
+}
+
+.NavbarItems {
+  /* background: linear-gradient(90deg, rgb(10, 112, 44) 0%, rgb(236, 236, 245) 100%); */
+  background-color: transparent;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  position: absolute;
+  
+}
+
+.navbar-logo {
+  justify-content: start;
+  margin-left: 20px;
+  cursor: pointer;
+  color: rgb(10, 112, 44)
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: end;
+  margin-right: 2rem;
+
 }
