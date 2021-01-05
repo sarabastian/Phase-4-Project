@@ -5,10 +5,17 @@ import { Button, Form, FormGroup, Modal }
 import { FacebookLoginButton } from 'react-social-login-buttons';
 
 
-const Signup = (props) => {
+class Signup extends React.Component {
+    render () {
+    
+    this.state = ({    
+        username: '',
+        password: ''
+    })
+        
     return (
         <section>
-            <Modal show={props.show} onHide={props.onHide} >
+            <Modal show={this.props.show} onHide={this.props.onHide} >
             <Form className="Signup-form" style={{width:"100%", maxWidth:"330px", padding:"15px", margin:"auto", height:"100%"}}>
                 <h1>
                     {/* <span className="font-weight-bold">VanBnB</span> */}
@@ -31,6 +38,7 @@ const Signup = (props) => {
             </Modal>
         </section>
     )
+}
 }
 
 export default Signup;
