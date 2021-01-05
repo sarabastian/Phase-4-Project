@@ -1,15 +1,15 @@
 import React from 'react';
-import './Signup.css';
 import { Button, Form, FormGroup, Modal }
     from 'react-bootstrap';
 // import { MDBIcon, MDBContainer, MDBBtn } from 'mdbreact';
 import { FacebookLoginButton } from 'react-social-login-buttons';
 
+
 const Signup = (props) => {
     return (
         <section>
             <Modal show={props.show} onHide={props.onHide} >
-            <Form className="Signup-form">
+            <Form className="Signup-form" style={{width:"100%", maxWidth:"330px", padding:"15px", margin:"auto", height:"100%"}}>
                 <h1>
                     {/* <span className="font-weight-bold">VanBnB</span> */}
                 </h1>
