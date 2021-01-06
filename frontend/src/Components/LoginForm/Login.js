@@ -7,13 +7,39 @@ import { FacebookLoginButton } from 'react-social-login-buttons';
 
 
 class Login extends React.Component {
-    render () {
-
-    this.state = ({
-        username: '',
-        password: ''
+    state = ({
+        username: "",
+        password: ""
     })
 
+    handleInput = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    // handleSubmit = (e) => {
+    //     e.preventDefault()
+    
+    //     fetch('http://localhost:3000/login',{
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //       body: JSON.stringify({
+    //         user: this.state
+    //       })
+    //     }).then((response) => response.json())
+    //     .then(token => {
+    //         if(token.hasOwnProperty('token'){
+    //         localStorage.setItem('token', token.token)
+    //         this.
+    //         })
+            
+    //     })
+    // }
+
+    render () {
     return (
         <section>
             <Modal show={this.props.show} onHide={this.props.onHide} >
@@ -24,11 +50,11 @@ class Login extends React.Component {
                 <h2 className="text-center">Welcome</h2>
                 <FormGroup>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Email" value={this.state.username} />
+                    <Form.Control name="username" type="email" placeholder="Email" onChange={this.handleInput} value={this.state.username} />
                 </FormGroup>
                 <FormGroup>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" value={this.state.password} />
+                    <Form.Control name="password" type="password" placeholder="Password" onChange={this.handleInput} value={this.state.password} />
                 </FormGroup>
                 <Button className="btn-lg btn-dark btn-block">Log in</Button>
                 <div className="text-center pt-3">
