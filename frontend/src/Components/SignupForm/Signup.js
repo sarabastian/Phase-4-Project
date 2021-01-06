@@ -39,7 +39,7 @@ class Signup extends React.Component {
                 <h2 className="text-center">Sign up</h2>
                 <FormGroup>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control name='username' type="email" placeholder="Email" value={this.state.username} onChange={this.handleInput} />
+                    <Form.Control name='username'  placeholder="Email" value={this.state.username} onChange={this.handleInput} />
                 </FormGroup>
                 <FormGroup>
                     <Form.Label>Password</Form.Label>

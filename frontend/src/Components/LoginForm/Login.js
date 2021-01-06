@@ -21,7 +21,7 @@ class Login extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
     
-        fetch('http://localhost:3001/login',{
+        fetch('http://localhost:3001/api/v1/login',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ class Login extends React.Component {
                 <h2 className="text-center">Welcome</h2>
                 <FormGroup>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control name="username" type="email" placeholder="Email" onChange={this.handleInput} value={this.state.username} />
+                    <Form.Control name="username" placeholder="Email" onChange={this.handleInput} value={this.state.username} />
                 </FormGroup>
                 <FormGroup>
                     <Form.Label>Password</Form.Label>
