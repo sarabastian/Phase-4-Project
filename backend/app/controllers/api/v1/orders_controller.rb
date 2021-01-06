@@ -11,8 +11,10 @@ class Api::V1::OrdersController < ApplicationController
     end
 
     def create
+        
         order = Order.new(order_params)
-        if @order.save render json: order
+        if order.save 
+            render json: order
         end
     end
 

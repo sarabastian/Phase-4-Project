@@ -13,21 +13,25 @@ handleSubmit = () => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json'
             // 'auth-key': localStorage.getItem('token')
         },
         body: JSON.stringify({
-            // user_id: user_info.user.id
+            user_id: localStorage.user_id,
             van_id: this.props.location.state.van.id
-        })
+        }),
     })
     .then(r => r.json())
-    .then(order => console.log(order))
+    .then(user => console.log(user))
+
 }
 
 
 
     render() {
         console.log(this.props.location.state.departure)
+        
+       
         // const date = getDateFromFormat()
         return (
 
@@ -225,7 +229,7 @@ handleSubmit = () => {
                                         <button type="reset" class="btn btn-default btn-lg btn-block">Cancel</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                                        <button type="submit" class="btn btn-success btn-lg btn-block" onClick={()=> this.handleSubmit()}>Submit</button>
                                     </div>
                                 </div>
                               

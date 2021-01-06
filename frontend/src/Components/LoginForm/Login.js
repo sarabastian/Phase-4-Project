@@ -21,7 +21,7 @@ class Login extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
     
-        fetch('http://localhost:3001/login',{
+        fetch('http://localhost:3001/api/v1/login',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -30,10 +30,16 @@ class Login extends React.Component {
             user: this.state
           })
         }).then((response) => response.json())
-        .then(data => console.log(data.user_info))
+        .then(data => {
+              localStorage.setItem('user_id', data.user_info.user_id)
+            
+          })
+  
     }
+    
 
     render () {
+        
     return (
         <section>
             <Modal show={this.props.show} onHide={this.props.onHide} >
