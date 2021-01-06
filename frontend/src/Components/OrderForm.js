@@ -12,7 +12,8 @@ handleSubmit = () => {
     fetch('http://localhost:3001/api/v1/orders', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'auth-key': localStorage.getItem('token')
         },
         body: JSON.stringify({
             // user_id: user_id,
