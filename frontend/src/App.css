@@ -30,6 +30,34 @@
   
 } 
 
+.signup-order {
+  width: 350px;
+  height: 400px;
+  font-size: x-small
+}
+
+.login-order {
+  width: 350px;
+  height: 400px;
+  font-size: x-small
+}
+
+.order-form {
+  width: 65%;
+  float:left; 
+  display:inline; 
+  width: 49%;
+
+}
+
+.van-order-card {
+  width: 35%;
+  float:right; 
+  display:inline; 
+  width: 49%;
+}
+
+
 /* 
 .carousel {
   /* any dimensions are fine, it can be responsive with max-width */

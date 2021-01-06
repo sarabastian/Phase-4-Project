@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button, Carousel, Badge, Tab, Nav, Col, Row, ListGroup } from 'react-bootstrap';
-import OrderForm from './OrderForm'
+import { Link } from "react-router-dom";
 
 class VanShow extends React.Component {
 
@@ -120,11 +120,20 @@ class VanShow extends React.Component {
 
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="info" onClick={() => this.handleBooking()}>Book Now</Button>
+          <Link to={{
+            pathname: "/book",
+            state: {
+              van: this.props.van,
+              departure: this.props.departure,
+              return: this.props.return
+            }
+            
+           }}> 
+            <Button variant="info"> Book Now</Button> </Link>
             <Button variant="info" onClick={this.props.closeModal}>Close</Button>
 
           </Modal.Footer>
-          {this.props.show ? null : <OrderForm />}
+         
         </Modal>
 
       </>

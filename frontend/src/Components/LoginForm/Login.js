@@ -18,32 +18,26 @@ class Login extends React.Component {
         })
     }
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault()
+    handleSubmit = (e) => {
+        e.preventDefault()
     
-    //     fetch('http://localhost:3000/login',{
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify({
-    //         user: this.state
-    //       })
-    //     }).then((response) => response.json())
-    //     .then(token => {
-    //         if(token.hasOwnProperty('token'){
-    //         localStorage.setItem('token', token.token)
-    //         this.
-    //         })
-            
-    //     })
-    // }
+        fetch('http://localhost:3001/login',{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            user: this.state
+          })
+        }).then((response) => response.json())
+        .then(user => console.log(user))
+    }
 
     render () {
     return (
         <section>
             <Modal show={this.props.show} onHide={this.props.onHide} >
-            <Form className="login-form" style={{width:"100%", maxWidth:"330px", padding:"15px", margin:"auto", height:"100%"}}>
+            <Form onSubmit={this.handleSubmit} className="login-form" style={{width:"100%", maxWidth:"330px", padding:"15px", margin:"auto", height:"100%"}}>
                 <h1>
                     {/* <span className="font-weight-bold">VanBnB</span> */}
                 </h1>
@@ -56,7 +50,7 @@ class Login extends React.Component {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name="password" type="password" placeholder="Password" onChange={this.handleInput} value={this.state.password} />
                 </FormGroup>
-                <Button className="btn-lg btn-dark btn-block">Log in</Button>
+                <Button type="submit" className="btn-lg btn-dark btn-block">Log in</Button>
                 <div className="text-center pt-3">
                     Or continue with social media
                 </div>

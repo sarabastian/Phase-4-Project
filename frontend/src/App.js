@@ -1,9 +1,12 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { Route, BrowserRouter, Switch } from "react-router-dom";
-import HomePage from './Components/HomePage'
+import HomePage from './Components/HomePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import VanShow from './Components/VanShow'
+import OrderForm from './Components/OrderForm';
+import Login from './Components/LoginForm/Login'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   render() {
@@ -11,19 +14,20 @@ class App extends React.Component {
 
     return (
       <div className="App">
-       
-        <BrowserRouter>
+        <Router>
           <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/book" component={OrderForm} />
+            <Route path="/login" component={Login} />
 
 
-            <Route exact path='/' >
-            <HomePage />
-            </Route>
-            <Route exact path="/vans/:id" component={() => <VanShow />} />
 
 
           </Switch>
-        </BrowserRouter>
+       </Router>
+            
+       
+          
       </div>
 
     );
