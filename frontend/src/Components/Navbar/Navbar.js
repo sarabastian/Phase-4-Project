@@ -18,7 +18,7 @@ const Navbar = () => {
             <section>
             <nav className="NavbarItems">
                 <h1 className="navbar-logo">
-                    <i className="fas fa-shuttle-van">Vanbnb</i>
+                    <i className="fas fa-shuttle-van">RVbnb</i>
                 </h1>
                 <div className="menu-icon">
                     

@@ -1,9 +1,9 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Search from './Search'
 // import VanContainer from './VanContainer'
 import Navbar from './Navbar/Navbar';
-import Login from './LoginForm/Login';
+// import Login from './LoginForm/Login';
 
 
 class HomePage extends React.Component {
