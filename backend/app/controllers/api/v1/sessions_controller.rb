@@ -1,7 +1,7 @@
 class Api::V1::SessionsController < ApplicationController
 
     def create 
-        @user = User.find_by(username: users_params [:username])
+        @user = User.find_by(username: users_params[:username])
         if @user && @user.authenticate(users_params[:password])
 
             payload = { user_id: @user.id}
