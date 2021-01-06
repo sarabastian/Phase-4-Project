@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 // import './Login.css';
 import { Button, Form, FormGroup, Modal }
     from 'react-bootstrap';
@@ -30,8 +31,18 @@ class Login extends React.Component {
             user: this.state
           })
         }).then((response) => response.json())
-        .then(user => console.log(user))
+        // .then(data => console.log(data.auth_key))
+        .then(data => {
+            // if(token.hasOwnProperty('token')){
+                console.log(data.auth_key)
+                localStorage.setItem('token', data.auth_key)
+                this.props.history.push('/')
+            // }else{
+            //     alert('login failed...')
+            // }
+        })
     }
+
 
     render () {
     return (
@@ -50,7 +61,7 @@ class Login extends React.Component {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name="password" type="password" placeholder="Password" onChange={this.handleInput} value={this.state.password} />
                 </FormGroup>
-                <Button type="submit" className="btn-lg btn-dark btn-block">Log in</Button>
+                <Button onClick={this.props.onHide} type="submit" className="btn-lg btn-dark btn-block">Log in</Button>
                 <div className="text-center pt-3">
                     Or continue with social media
                 </div>
@@ -58,8 +69,8 @@ class Login extends React.Component {
             </Form>
             </Modal>
         </section>
-    )
+        )
+    }
 }
-}
-export default Login;
+export default withRouter(Login);
 
