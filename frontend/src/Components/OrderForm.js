@@ -5,7 +5,7 @@ import { FacebookLoginButton } from 'react-social-login-buttons';
 class OrderForm extends React.Component {
 
     state = {
-        order: []
+        current_user: {}
     }
 
 handleSubmit = () => {
@@ -13,10 +13,10 @@ handleSubmit = () => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'auth-key': localStorage.getItem('token')
+            // 'auth-key': localStorage.getItem('token')
         },
         body: JSON.stringify({
-            // user_id: user_id,
+            // user_id: user_info.user.id
             van_id: this.props.location.state.van.id
         })
     })

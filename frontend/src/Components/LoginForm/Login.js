@@ -30,7 +30,7 @@ class Login extends React.Component {
             user: this.state
           })
         }).then((response) => response.json())
-        .then(user => console.log(user))
+        .then(data => console.log(data.user_info))
     }
 
     render () {
@@ -43,8 +43,8 @@ class Login extends React.Component {
                 </h1>
                 <h2 className="text-center">Welcome</h2>
                 <FormGroup>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control name="username" type="email" placeholder="Email" onChange={this.handleInput} value={this.state.username} />
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control name="username" placeholder="Username" onChange={this.handleInput} value={this.state.username} />
                 </FormGroup>
                 <FormGroup>
                     <Form.Label>Password</Form.Label>

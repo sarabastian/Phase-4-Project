@@ -7,7 +7,7 @@ class Api::V1::SessionsController < ApplicationController
             payload = { user_id: @user.id}
             token = JWT.encode(payload, 'Phase4')
 
-            render json: { auth_key: token}, :status => :ok
+            render json: { auth_key: token, user_info: payload}, :status => :ok
         else
             render json: { :msg => "Login failed.." }, :status => :ok
         end

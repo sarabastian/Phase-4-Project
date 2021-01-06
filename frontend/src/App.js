@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import HomePage from './Components/HomePage';
+import HomePage from './components/HomePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import OrderForm from './Components/OrderForm';
-import Login from './Components/LoginForm/Login'
+import OrderForm from './components/OrderForm';
+import Login from './components/LoginForm/Login'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
