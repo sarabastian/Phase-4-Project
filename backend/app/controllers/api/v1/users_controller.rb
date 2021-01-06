@@ -2,14 +2,20 @@ class Api::V1::UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
+
         if @user.valid?
-          render json: { user: UserSerializer.new(@user) }, status: :created
+          @user.save
+
+          payload = { user_id: @user.id}
+          token = JWT.encode(payload, 'Phase4')
+
+          render json: { user: UserSerializer.new(@user), auth_key: token }, status: :created
         else
           render json: { error: 'failed to create user' }, status: :not_acceptable
         end
       end
 
-      def index
+    def index
         users = User.all
         render json: users
     end

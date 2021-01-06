@@ -1,5 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
     def index
+        # byebug
         reviews = Review.all 
         render json: reviews
     end

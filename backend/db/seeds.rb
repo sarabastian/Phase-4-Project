@@ -112,7 +112,7 @@ vi20 = VanImage.create(image_id: i20.id, van_id: v7.id)
 vi21 = VanImage.create(image_id: i21.id, van_id: v7.id)
 
 
-u1 = User.create(username: "Sara", password: "password", address: "123 ABC", email: "abc@email.com")
+u1 = User.create(username: "Sara", password: "password")
 
 o1 = Order.create(user_id: u1.id, van_id: v2.id)
 o2 = Order.create(user_id: u1.id, van_id: v3.id)
