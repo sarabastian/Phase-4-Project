@@ -35,7 +35,7 @@ class Login extends React.Component {
         .then(data => {
             // if(token.hasOwnProperty('token')){
                 console.log(data.auth_key)
-                localStorage.setItem('token', data.auth_key)
+                localStorage.setItem('token', data.user_info.user_id)
                 this.props.history.push('/')
             // }else{
             //     alert('login failed...')

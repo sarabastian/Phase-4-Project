@@ -44,6 +44,10 @@ const Navbar = () => {
                             Login
                           </a>
                     </li>
+
+                    <li>
+                    <img src="https://www.k2e.com/wp-content/uploads/2018/09/person-icon.png" class="rounded-circle" alt="Cinque Terre" height="30px" /> 
+                    </li>
               </ul>
         </nav>
         <Login show={show} onHide={handleClose}  />
