@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :orders
       resources :reviews
       resources :saved_vans
+      resources :dates
 
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_034357) do
+ActiveRecord::Schema.define(version: 2021_01_07_160749) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2021_01_07_034357) do
   create_table "saved_vans", force: :cascade do |t|
     t.integer "user_id"
     t.integer "van_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trip_dates", force: :cascade do |t|
+    t.string "departure_date"
+    t.string "return_date"
+    t.integer "van_id"
+    t.integer "saved_van_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
