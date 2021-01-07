@@ -1,6 +1,7 @@
 import React from 'react';
-import { CardDeck } from 'react-bootstrap';
-import SavedVanCard from './SavedVanCard'
+import { Row, Col, CardDeck, Jumbotron } from 'react-bootstrap';
+import SavedVanCard from './SavedVanCard';
+import Navbar from './Navbar/Navbar'
 
 class SavedVansContainer extends React.Component {
 
@@ -18,10 +19,24 @@ class SavedVansContainer extends React.Component {
       console.log(this.state.saved_vans)
   
         return(
-            <CardDeck >
-                {this.state.saved_vans.map(array => <SavedVanCard van={array.van} key={array.van.id} 
+       
+            <CardDeck className="saved-card-deck">
+                 <Navbar/>
+                 <Jumbotron>
+            Dates Requested: {this.props.location.state.departure} - {this.props.location.state.return}
+            </Jumbotron>
+                 <Row  > 
+                     <Col >
+                    
+                {this.state.saved_vans.map(array => <SavedVanCard van={array.van} key={array.van.id} departure={this.props.location.state.departure}
+                                                    return={this.props.location.state.return}
                                                    
                                                      />)}
+                    
+                    
+                    </Col>
+           
+                </Row>
             </CardDeck>
         )
     }

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import VanShow from './VanShow';
-
+import SavedVansContainer from './SavedVansContainer';
 import Navbar from './Navbar/Navbar';
+import { Link } from "react-router-dom";
+
 
 
 class VanCard extends React.Component {
@@ -15,29 +17,7 @@ class VanCard extends React.Component {
   }
 
 
-  handleLikes = () => {
-
-    this.setState({
-      liked: !this.state.liked
-    })
-    fetch('http://localhost:3001/api/v1/saved_vans', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-        
-    },
-    body: JSON.stringify({
-        user_id: localStorage.user_id,
-        van_id: this.props.van.id
-    }),
-})
-.then(r => r.json())
-.then(van => console.log(van))
-
-
-  }
-
+  
   // saveVan = () => {
     
   
@@ -76,9 +56,8 @@ class VanCard extends React.Component {
             return={this.props.return}
 
           /> : null}
-          {' '} <Button variant="danger" onClick={() =>
-            this.handleLikes()} >{this.state.liked ? '♥' : '♡'}
-          </Button>
+
+             
         </Card.Body>
       </Card>
 

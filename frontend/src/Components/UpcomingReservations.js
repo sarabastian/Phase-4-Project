@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Jumbotron, Container, Carousel } from 'react-bootstrap'
+import { Button, Jumbotron, Container, Carousel } from 'react-bootstrap'
 
 class UpcomingReservations extends React.Component {
 
@@ -8,10 +8,13 @@ class UpcomingReservations extends React.Component {
   console.log(this.props.location.state.departure)
     return (
 
-<Jumbotron fluid>
+<Jumbotron fluid className="jumbo-2">
   <Container>
     <h1>{this.props.location.state.user.username}'s Upcoming Reservations</h1>
-    <Carousel>
+    <h2>{this.props.location.state.departure}</h2>
+    
+    <Carousel className="reservation">
+    
   <Carousel.Item>
   <Carousel.Caption>
       <h2>{this.props.location.state.van.name}</h2>
@@ -47,9 +50,14 @@ class UpcomingReservations extends React.Component {
       <h3>Third slide label</h3>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
     </Carousel.Caption>
+   
   </Carousel.Item>
+  
 </Carousel>
+
   </Container>
+  <br></br><br></br><br></br>
+  <Button className="cancel-btn" variant="danger" margin="center">Cancel Reservation</Button>
 </Jumbotron>
 
     )

@@ -147,7 +147,20 @@ handleSubmit = () => {
                                     </Form.Group>
                                 
                                 <br></br>
-                                
+                                <Card className="van-order-card"  style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={this.props.location.state.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
+                    <Card.Body>
+                        <Card.Title><em>{this.props.location.state.van.name}</em></Card.Title>
+                        <Card.Text>
+                            {this.props.location.state.van.description}
+                        </Card.Text>
+                        <Card.Text>
+                            <br></br>${this.props.location.state.van.rates}/day
+</Card.Text>
+
+
+                    </Card.Body>
+                </Card>
                              
                             </Card.Body>
                         </Accordion.Collapse>
@@ -249,20 +262,7 @@ handleSubmit = () => {
                     </Card>
                     </Accordion>
                    
-                <Card className="van-order-card"  style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.props.location.state.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
-                    <Card.Body>
-                        <Card.Title><em>{this.props.location.state.van.name}</em></Card.Title>
-                        <Card.Text>
-                            {this.props.location.state.van.description}
-                        </Card.Text>
-                        <Card.Text>
-                            <br></br>${this.props.location.state.van.rates}/day
-</Card.Text>
-
-
-                    </Card.Body>
-                </Card>
+   
                 </Form>
 
 
