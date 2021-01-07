@@ -16,12 +16,35 @@ class VanCard extends React.Component {
 
 
   handleLikes = () => {
- 
+
     this.setState({
       liked: !this.state.liked
     })
-  
+    fetch('http://localhost:3001/api/v1/saved_vans', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        
+    },
+    body: JSON.stringify({
+        user_id: localStorage.user_id,
+        van_id: this.props.van.id
+    }),
+})
+.then(r => r.json())
+.then(van => console.log(van))
+
+
   }
+
+  // saveVan = () => {
+    
+  
+
+  // }
+
+
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
 
@@ -33,10 +56,10 @@ class VanCard extends React.Component {
     return (
 
       <Card className="card-img-top img-fluid">
-        <Card.Img variant="top" src={this.props.van.images[0].img_url} style={{ display: 'inline-block', width: '100%' }} />
+        <Card.Img variant="top" src={this.props.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
 
         <Card.Body>
-     
+
           <Card.Title><em>{this.props.van.name}</em></Card.Title>
           <Card.Text>
             {this.props.van.description}
@@ -53,9 +76,9 @@ class VanCard extends React.Component {
             return={this.props.return}
 
           /> : null}
-            {' '} <Button variant="danger"  onClick={()=> 
-              this.handleLikes()}>{this.state.liked ? '♥' : '♡'}
-        </Button>
+          {' '} <Button variant="danger" onClick={() =>
+            this.handleLikes()} >{this.state.liked ? '♥' : '♡'}
+          </Button>
         </Card.Body>
       </Card>
 

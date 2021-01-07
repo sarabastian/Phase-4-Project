@@ -32,7 +32,7 @@ class VanShow extends React.Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={this.props.van.images[0].img_url}
+                src={this.props.van.img_1}
                 alt='First Slide'
               />
             
@@ -40,7 +40,7 @@ class VanShow extends React.Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={this.props.van.images[1].img_url}
+                src={this.props.van.img_2}
                 alt='Second Slide'
               />
 
@@ -53,7 +53,7 @@ class VanShow extends React.Component {
             <Carousel.Item>
               <img
                 className="d-block 1-100"
-                src={this.props.van.images[2].img_url}
+                src={this.props.van.img_3}
                 alt='Third Slide'
               />
 

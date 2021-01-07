@@ -1,6 +1,8 @@
 import React from "react";
-import { Form, Button, Accordion, Card, Row, Col, FormGroup, Figure } from 'react-bootstrap';
+import { Form, Button, Accordion, Card, Row, Col, FormGroup } from 'react-bootstrap';
 import { FacebookLoginButton } from 'react-social-login-buttons';
+import { Link } from "react-router-dom";
+
 
 class OrderForm extends React.Component {
 
@@ -22,14 +24,15 @@ handleSubmit = () => {
         }),
     })
     .then(r => r.json())
-    .then(user => console.log(user))
+    .then(order => this.props.history.push("/reservations", 
+    order, this.props.location.state.departure)
+    )
 
 }
 
 
-
     render() {
-        console.log(this.props.location.state.departure)
+        console.log(this.props.location)
         
        
         // const date = getDateFromFormat()
@@ -247,7 +250,7 @@ handleSubmit = () => {
                     </Accordion>
                    
                 <Card className="van-order-card"  style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.props.location.state.van.images[0].img_url} style={{ display: 'inline-block', width: '100%' }} />
+                    <Card.Img variant="top" src={this.props.location.state.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
                     <Card.Body>
                         <Card.Title><em>{this.props.location.state.van.name}</em></Card.Title>
                         <Card.Text>
