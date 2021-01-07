@@ -5,8 +5,33 @@ import { Link } from "react-router-dom";
 class VanShow extends React.Component {
 
   state = {
-    book: false
+    book: false,
+    liked: false,
   }
+
+  handleLikes = () => {
+
+    this.setState({
+      liked: !this.state.liked
+    })
+    fetch('http://localhost:3001/api/v1/saved_vans', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        
+    },
+    body: JSON.stringify({
+        user_id: localStorage.user_id,
+        van_id: this.props.van.id
+    }),
+})
+.then(r => r.json())
+.then(van => console.log(van))
+
+
+  }
+
   handleBooking = () => {
     this.setState({ book: true })
   }
@@ -32,7 +57,7 @@ class VanShow extends React.Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={this.props.van.images[0].img_url}
+                src={this.props.van.img_1}
                 alt='First Slide'
               />
             
@@ -40,7 +65,7 @@ class VanShow extends React.Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={this.props.van.images[1].img_url}
+                src={this.props.van.img_2}
                 alt='Second Slide'
               />
 
@@ -53,7 +78,7 @@ class VanShow extends React.Component {
             <Carousel.Item>
               <img
                 className="d-block 1-100"
-                src={this.props.van.images[2].img_url}
+                src={this.props.van.img_3}
                 alt='Third Slide'
               />
 
@@ -128,9 +153,13 @@ class VanShow extends React.Component {
               return: this.props.return
             }
             
-           }}> 
-            <Button variant="info"> Book Now</Button> </Link>
+           }}>   <Button variant="info"> Book Now</Button> </Link>
+     
+          
             <Button variant="info" onClick={this.props.closeModal}>Close</Button>
+          <Button variant="danger" onClick={() =>
+            this.handleLikes()} >{this.state.liked ? '♥'  : '♡'} 
+          </Button> 
 
           </Modal.Footer>
          
@@ -145,3 +174,13 @@ class VanShow extends React.Component {
 
 export default VanShow;
 
+{/* <Link to={{
+  pathname: "/my-vans",
+  state: {
+    van: this.props.van,
+    departure: this.props.departure,
+    return: this.props.return
+  }
+  
+ }} >
+   </Link> */}

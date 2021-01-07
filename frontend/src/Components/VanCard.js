@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import VanShow from './VanShow';
-
+import SavedVansContainer from './SavedVansContainer';
 import Navbar from './Navbar/Navbar';
+import { Link } from "react-router-dom";
+
 
 
 class VanCard extends React.Component {
@@ -15,13 +17,14 @@ class VanCard extends React.Component {
   }
 
 
-  handleLikes = () => {
- 
-    this.setState({
-      liked: !this.state.liked
-    })
   
-  }
+  // saveVan = () => {
+    
+  
+
+  // }
+
+
   openModal = () => this.setState({ isOpen: true });
   closeModal = () => this.setState({ isOpen: false });
 
@@ -33,10 +36,10 @@ class VanCard extends React.Component {
     return (
 
       <Card className="card-img-top img-fluid">
-        <Card.Img variant="top" src={this.props.van.images[0].img_url} style={{ display: 'inline-block', width: '100%' }} />
+        <Card.Img variant="top" src={this.props.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
 
         <Card.Body>
-     
+
           <Card.Title><em>{this.props.van.name}</em></Card.Title>
           <Card.Text>
             {this.props.van.description}
@@ -53,9 +56,8 @@ class VanCard extends React.Component {
             return={this.props.return}
 
           /> : null}
-            {' '} <Button variant="danger"  onClick={()=> 
-              this.handleLikes()}>{this.state.liked ? '♥' : '♡'}
-        </Button>
+
+             
         </Card.Body>
       </Card>
 

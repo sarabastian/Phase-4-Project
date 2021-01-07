@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_205214) do
-
-  create_table "images", force: :cascade do |t|
-    t.string "img_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_01_07_034357) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
@@ -47,13 +41,6 @@ ActiveRecord::Schema.define(version: 2020_12_23_205214) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "van_images", force: :cascade do |t|
-    t.integer "image_id"
-    t.integer "van_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "vans", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -68,6 +55,9 @@ ActiveRecord::Schema.define(version: 2020_12_23_205214) do
     t.string "location"
     t.integer "rates"
     t.boolean "pet_friendly"
+    t.string "img_1"
+    t.string "img_2"
+    t.string "img_3"
   end
 
 end

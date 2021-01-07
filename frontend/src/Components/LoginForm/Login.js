@@ -42,9 +42,11 @@ class Login extends React.Component {
             // }
         })
     }
+    
 
 
     render () {
+        
     return (
         <section>
             <Modal show={this.props.show} onHide={this.props.onHide} >
@@ -54,8 +56,8 @@ class Login extends React.Component {
                 </h1>
                 <h2 className="text-center">Welcome</h2>
                 <FormGroup>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control name="username" placeholder="Email" onChange={this.handleInput} value={this.state.username} />
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control name="username" placeholder="Username" onChange={this.handleInput} value={this.state.username} />
                 </FormGroup>
                 <FormGroup>
                     <Form.Label>Password</Form.Label>

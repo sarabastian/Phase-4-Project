@@ -1,11 +1,13 @@
 import React from "react";
-import { Form, Button, Accordion, Card, Row, Col, FormGroup, Figure } from 'react-bootstrap';
+import { Form, Button, Accordion, Card, Row, Col, FormGroup } from 'react-bootstrap';
 import { FacebookLoginButton } from 'react-social-login-buttons';
+import { Link } from "react-router-dom";
+
 
 class OrderForm extends React.Component {
 
     state = {
-        order: []
+        current_user: {}
     }
 
 handleSubmit = () => {
@@ -13,21 +15,26 @@ handleSubmit = () => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'auth-key': localStorage.getItem('token')
+            'Accept': 'application/json'
+            // 'auth-key': localStorage.getItem('token')
         },
         body: JSON.stringify({
-            // user_id: user_id,
+            user_id: localStorage.user_id,
             van_id: this.props.location.state.van.id
-        })
+        }),
     })
     .then(r => r.json())
-    .then(order => console.log(order))
+    .then(order => this.props.history.push("/reservations", 
+    order, this.props.location.state.departure)
+    )
+
 }
 
 
-
     render() {
-        console.log(this.props.location.state.departure)
+        console.log(this.props.location)
+        
+       
         // const date = getDateFromFormat()
         return (
 
@@ -140,7 +147,20 @@ handleSubmit = () => {
                                     </Form.Group>
                                 
                                 <br></br>
-                                
+                                <Card className="van-order-card"  style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={this.props.location.state.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
+                    <Card.Body>
+                        <Card.Title><em>{this.props.location.state.van.name}</em></Card.Title>
+                        <Card.Text>
+                            {this.props.location.state.van.description}
+                        </Card.Text>
+                        <Card.Text>
+                            <br></br>${this.props.location.state.van.rates}/day
+</Card.Text>
+
+
+                    </Card.Body>
+                </Card>
                              
                             </Card.Body>
                         </Accordion.Collapse>
@@ -225,7 +245,7 @@ handleSubmit = () => {
                                         <button type="reset" class="btn btn-default btn-lg btn-block">Cancel</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                                        <button type="submit" class="btn btn-success btn-lg btn-block" onClick={()=> this.handleSubmit()}>Submit</button>
                                     </div>
                                 </div>
                               
@@ -242,20 +262,7 @@ handleSubmit = () => {
                     </Card>
                     </Accordion>
                    
-                <Card className="van-order-card"  style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.props.location.state.van.images[0].img_url} style={{ display: 'inline-block', width: '100%' }} />
-                    <Card.Body>
-                        <Card.Title><em>{this.props.location.state.van.name}</em></Card.Title>
-                        <Card.Text>
-                            {this.props.location.state.van.description}
-                        </Card.Text>
-                        <Card.Text>
-                            <br></br>${this.props.location.state.van.rates}/day
-</Card.Text>
-
-
-                    </Card.Body>
-                </Card>
+   
                 </Form>
 
 

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resources :van_images, only: [:show]
       resources :images, only: [:show, :index]
       resources :van_images, only: [:show, :index]
-      resources :orders, only: [:index, :show]
+      resources :orders
       resources :reviews
       resources :saved_vans
 
