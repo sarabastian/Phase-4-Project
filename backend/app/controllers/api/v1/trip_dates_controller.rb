@@ -1,8 +1,8 @@
 class Api::V1::TripDatesController < ApplicationController
 
 def index
-    trip_dates = TripDates.all 
-    render json: dates
+    trip_dates = TripDate.all 
+    render json: trip_dates
 end
 
 def show
@@ -21,7 +21,7 @@ end
 private
 
 def trip_date_params
-    params.require(:trip_date).permit(:departure_date, :return_date, :van_id, :saved_van_id)
+    params.require(:trip_date).permit(:departure_date, :return_date, :van_id)
 end
 
 

@@ -28,6 +28,8 @@ class Search extends React.Component {
         })
     }
     setStartDate = (e) => {
+
+       
         this.setState({
             departure: e.target.value
         })
@@ -38,6 +40,8 @@ class Search extends React.Component {
             return: e.target.value
         })
     }
+
+    
 
     onButtonClick = (e) => {
         e.preventDefault()

@@ -103,5 +103,5 @@ r1 = Review.create(user_id: u1.id, van_id: v1.id, comment: 'We loved the Rambler
 
 sv1 = SavedVan.create(user_id: u1.id, van_id: v6.id)
 
-td1 = TripDate.create(departure_date: '1/18/2021', return_date: '1/29/2021', van_id: v6.id, saved_van_id: sv1.id)
+td1 = TripDate.create(departure_date: '1/18/2021', return_date: '1/29/2021', van_id: v6.id)
 

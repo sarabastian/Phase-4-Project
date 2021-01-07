@@ -7,6 +7,7 @@ class VanShow extends React.Component {
   state = {
     book: false,
     liked: false,
+    dates: []
   }
 
   handleLikes = () => {
@@ -32,12 +33,35 @@ class VanShow extends React.Component {
 
   }
 
+componentDidMount() {
+  fetch('http://localhost:3001/api/v1/trip_dates', {
+        method: 'POST',
+     
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            
+        },
+        body: JSON.stringify({
+            departure_date: this.props.departure,
+            return_date: this.props.return,
+            van_id: this.props.van.id
+        }),
+    })
+    .then(r => r.json())
+    .then(dates => this.setState({
+      dates: dates
+    }))
+}
+
   handleBooking = () => {
     this.setState({ book: true })
+    
   }
 
 
   render() {
+    console.log(this.state.dates.departure_date)
     return (
       <>
         <div
@@ -51,7 +75,11 @@ class VanShow extends React.Component {
 
           aria-labelledby="example-custom-modal-styling-title">
           <Modal.Header closeButton>
-            <Modal.Title>{this.props.van.name}</Modal.Title>
+            <Modal.Title>{this.props.van.name} {'                         '}
+              <Badge  variant="success">
+               Available for {this.state.dates.departure_date} - {this.state.dates.return_date}
+              </Badge>  
+            </Modal.Title>
           </Modal.Header>
           <Carousel>
             <Carousel.Item>
@@ -91,6 +119,7 @@ class VanShow extends React.Component {
               <ListGroup.Item>Camper Van</ListGroup.Item>
               <ListGroup.Item>{this.props.van.description}</ListGroup.Item>
               <ListGroup.Item>{this.props.van.location}</ListGroup.Item>
+              
              
             </ListGroup>
             <br></br>
@@ -110,6 +139,7 @@ class VanShow extends React.Component {
                     <Nav.Item>
                       <Nav.Link eventKey="fourth">Reviews</Nav.Link>
                     </Nav.Item>
+            
                   </Nav>
                 </Col>
                 <Col sm={9}>
@@ -126,6 +156,8 @@ class VanShow extends React.Component {
                     <Tab.Pane eventKey="fourth">
                       <em>{this.props.van.reviews.map(r => r.comment)}</em>
                     </Tab.Pane>
+        
+                    
                   </Tab.Content>
                 </Col>
               </Row>
@@ -139,6 +171,7 @@ class VanShow extends React.Component {
               </Badge> : <Badge pill variant="danger">
                   Not pet-friendly
               </Badge>}{' '}
+          
 
               <Badge pill variant="info">{this.props.van.size}</Badge></h5>
 
@@ -149,8 +182,8 @@ class VanShow extends React.Component {
             pathname: "/book",
             state: {
               van: this.props.van,
-              departure: this.props.departure,
-              return: this.props.return
+              departure: this.state.dates.departure_date,
+              return: this.state.dates.return_date
             }
             
            }}>   <Button variant="info"> Book Now</Button> </Link>

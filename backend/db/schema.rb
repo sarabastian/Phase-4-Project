@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2021_01_07_160749) do
     t.string "departure_date"
     t.string "return_date"
     t.integer "van_id"
-    t.integer "saved_van_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

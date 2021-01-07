@@ -1,4 +1,5 @@
 class TripDateSerializer < ActiveModel::Serializer
-  belongs_to :van, :saved_van
-  attributes :id, :departure_date, :return_date, :van_id, :saved_van_id
+  belongs_to :van
+ 
+  attributes :id, :departure_date, :return_date, :van_id
 end

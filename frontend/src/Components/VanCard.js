@@ -13,9 +13,9 @@ class VanCard extends React.Component {
 
     isOpen: false,
     liked: false,
+    dates: ''
     // logged_in: false
   }
-
 
   
   // saveVan = () => {
@@ -25,7 +25,15 @@ class VanCard extends React.Component {
   // }
 
 
-  openModal = () => this.setState({ isOpen: true });
+  openModal = () => {
+
+    this.setState({ isOpen: true })
+  
+      
+    
+  
+  }
+
   closeModal = () => this.setState({ isOpen: false });
 
 
@@ -54,6 +62,7 @@ class VanCard extends React.Component {
             van={this.props.van}
             departure={this.props.departure}
             return={this.props.return}
+            
 
           /> : null}
 
