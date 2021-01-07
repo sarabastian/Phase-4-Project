@@ -19,12 +19,10 @@ class Api::V1::OrdersController < ApplicationController
     end
 
     def destroy
+        
         order = Order.find(params[:id])
-        if order.user != current_user
-        else
-            order.destroy
-            render json: {msg: "Reservation was deleted.."}
-        end
+        order.destroy
+        
     end
 
     private

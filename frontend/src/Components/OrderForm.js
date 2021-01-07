@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class OrderForm extends React.Component {
 
     state = {
-        current_user: {}
+        order: []
     }
 
 handleSubmit = () => {
@@ -24,9 +24,11 @@ handleSubmit = () => {
         }),
     })
     .then(r => r.json())
-    .then(order => this.props.history.push("/reservations", 
-    order, this.props.location.state.departure)
-    )
+    .then(order => {
+       
+        this.props.history.push("/reservations", 
+    order, this.props.location.state.departure)})
+    
 
 }
 

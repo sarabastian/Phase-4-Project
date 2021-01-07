@@ -206,14 +206,3 @@ componentDidMount() {
 
 
 export default VanShow;
-
-{/* <Link to={{
-  pathname: "/my-vans",
-  state: {
-    van: this.props.van,
-    departure: this.props.departure,
-    return: this.props.return
-  }
-  
- }} >
-   </Link> */}

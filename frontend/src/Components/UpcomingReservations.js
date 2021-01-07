@@ -1,17 +1,35 @@
 import React from "react";
-import { Button, Jumbotron, Container, Carousel } from 'react-bootstrap'
+import { Button, Jumbotron, Container, Carousel } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 class UpcomingReservations extends React.Component {
 
+  handleCancel = () => {
+    fetch(`http://localhost:3001/api/v1/orders/${this.props.location.state.id}`, {
+    method: "DELETE",
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+ 
+  })
+
+    
+  
+}
+  
+
+
+  
   render() {
   console.log(this.props.location.state)
-  console.log(this.props.location.state.departure)
+  console.log(this.props.location.state.id)
     return (
 
 <Jumbotron fluid className="jumbo-2">
   <Container>
     <h1>{this.props.location.state.user.username}'s Upcoming Reservations</h1>
-    <h2>{this.props.location.state.departure}</h2>
+    <h2>{this.props.location.state.trip_dates[0].departure_date}-{this.props.location.state.trip_dates[0].return_date}</h2>
     
     <Carousel className="reservation">
     
@@ -57,7 +75,17 @@ class UpcomingReservations extends React.Component {
 
   </Container>
   <br></br><br></br><br></br>
-  <Button className="cancel-btn" variant="danger" margin="center">Cancel Reservation</Button>
+  
+<Link to={{
+  pathname: "/",
+  state: {
+    user: this.props.location.state.user
+  }
+  
+ }} >
+  
+  <Button className="cancel-btn" variant="danger" onClick={()=> this.handleCancel()}>Cancel Reservation</Button>
+   </Link> 
 </Jumbotron>
 
     )
