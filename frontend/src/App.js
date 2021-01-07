@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import OrderForm from './components/OrderForm';
 import Login from './components/LoginForm/Login'
 import UpcomingReservations from './components/UpcomingReservations';
-import SavedVansContainer from './components/SavedVansContainer'
+import SavedVansContainer from './components/SavedVansContainer';
+import MyReservationsContainer from './components/MyReservationsContainer'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -21,8 +22,9 @@ class App extends React.Component {
             <Route exact path="/" component={HomePage} />
             <Route path="/book" component={OrderForm} />
             <Route path="/login" component={Login} />
-            <Route path="/reservations" component={UpcomingReservations} />
+            <Route path="/upcoming-reservations" component={UpcomingReservations} />
             <Route path="/my-vans" component={SavedVansContainer} />
+            <Route path="/my-reservations" component={MyReservationsContainer} />
 
 
 
