@@ -10,17 +10,11 @@ class HomePage extends React.Component {
 
 
 
-    handleShow = () => {
-        this.setState({
-            show: false
-        })
-    }
-
     render() {
         console.log(this.props.handleLogin)
         return (
             <div>
-                <NavBar handleLogin={this.props.handleLogin} loginState={this.props.loginState} />
+                <NavBar handleLogin={this.props.handleLogin} login={this.props.login} />
 
                 <Search />
 

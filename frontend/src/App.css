@@ -81,7 +81,8 @@
   width: 450px;
   height: 350px;
   padding: 30px;
-  border-radius: 15px 
+  border-radius: 15px; 
+  margin: 50px;
   /* margin: left */
 
 }
@@ -94,7 +95,7 @@
 
 
 .jumbo-1 {
-  height: 600px;
+  height: 800px;
   background-image: url("https://media.afar.com/uploads/images/post_images/images/ZQ8MbglX3Q/original_shutterstock_1017257911.jpg");
   background-size: cover
 }

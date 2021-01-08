@@ -12,12 +12,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   state = {
-    isloggedIn: false
+    isloggedin: false
+  }
+
+  componentDidMount(){
+    this.handleLogin();
   }
 
   handleLogin = () => {
     if(localStorage.getItem('token')) {
-      this.setState({ isloggedIn: true})
+      this.setState({ isloggedin: true})
     }
   }
 
@@ -34,7 +38,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/" component={() => <HomePage loginState={this.state.isloggedIn} handleLogin={this.handleLogin} /> } />
+            <Route exact path="/" component={() => <HomePage login={this.state.isloggedin} handleLogin={this.handleLogin} /> } />
             <Route path="/book" component={OrderForm} />
             <Route path="/login" component={Login} />
             <Route path="/reservations" component={UpcomingReservations} />

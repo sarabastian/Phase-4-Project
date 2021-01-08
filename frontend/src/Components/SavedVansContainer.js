@@ -23,13 +23,14 @@ class SavedVansContainer extends React.Component {
             <CardDeck className="saved-card-deck">
                  <Navbar/>
                  <Jumbotron>
-            Dates Requested: {this.props.location.state.departure} - {this.props.location.state.return}
+            {/* Dates Requested: {this.props.location.state.departure} - {this.props.location.state.return} */}
             </Jumbotron>
                  <Row  > 
                      <Col >
                     
-                {this.state.saved_vans.map(array => <SavedVanCard van={array.van} key={array.van.id} departure={this.props.location.state.departure}
-                                                    return={this.props.location.state.return}
+                {this.state.saved_vans.map(array => <SavedVanCard van={array.van} key={array.van.id} 
+                                                    // departure={this.props.location.state.departure}
+                                                    // return={this.props.location.state.return}
                                                    
                                                      />)}
                     

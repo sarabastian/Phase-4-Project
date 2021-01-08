@@ -65,7 +65,7 @@ class ApplicationController < ActionController::API
     #     payload = JWT.decode(token, 'Secret3', false)
     # end
     def auth_header
-        request.headers['Authorization']
+        request.headers['token']
       end
     
       def decoded_token

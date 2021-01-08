@@ -35,6 +35,7 @@ class Login extends React.Component {
         .then(data => {
             // if(token.hasOwnProperty('token')){
                 // console.log(data.auth_key)
+                console.log(data)
                 localStorage.setItem('token', data.user_info.user_id)
                 this.props.handleLogin()
                 // this.props.history.push('/')
@@ -47,7 +48,7 @@ class Login extends React.Component {
 
 
     render () {
-        
+        console.log(this.props.show)
     return (
         <section>
             <Modal show={this.props.show} onHide={this.props.onHide} >

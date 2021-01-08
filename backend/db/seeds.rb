@@ -13,6 +13,7 @@ Review.destroy_all
 Order.destroy_all
 Review.destroy_all
 SavedVan.destroy_all
+TripDate.destroy_all
 
 v1 = Van.create(name: 'The Rambler', description: 'RAM Promaster 159 WB High Roof', 
                 price: 96000, mileage: 8625,
@@ -101,3 +102,6 @@ r1 = Review.create(user_id: u1.id, van_id: v1.id, comment: 'We loved the Rambler
 
 
 sv1 = SavedVan.create(user_id: u1.id, van_id: v6.id)
+
+td1 = TripDate.create(departure_date: '1/18/2021', return_date: '1/29/2021', van_id: v6.id, saved_van_id: sv1.id)
+

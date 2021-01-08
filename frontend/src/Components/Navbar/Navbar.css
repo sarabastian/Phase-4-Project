@@ -21,6 +21,15 @@
     list-style: none;
 } */
 
+.navbar1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: transparent;
+    width: 100%;
+    position: absolute; 
+}
 
 .nav-li .nav-links {
     /* background-color: transparent; */
@@ -28,14 +37,7 @@
     /* position: absolute; */
 }
 
-.navbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 30px 10%;
-    /* background-color: transparent; */
-    position: absolute; 
-}
+
 
 .nav-li {
     display: inline-block;

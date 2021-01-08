@@ -4,4 +4,6 @@ class Van < ApplicationRecord
     has_many :reviews
     has_many :saved_vans
     has_many :users, through: :saved_vans
+    has_many :trip_dates
+    
 end

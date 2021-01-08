@@ -47,7 +47,12 @@ class Search extends React.Component {
     }
 
     render() {
-        let vans = this.state.vans.filter(van => van.location.toLowerCase()===this.state.location.toLowerCase())
+
+        // console.log(vans)
+        let vans = this.state.vans
+        if (vans.length > 0){
+            vans.filter(van => van.location.toLowerCase()===this.state.location.toLowerCase())
+        }
    
 
         return (

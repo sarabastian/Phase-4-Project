@@ -7,15 +7,16 @@ import './Navbar.css';
 import Login from '../LoginForm/Login';
 import Signup from '../SignupForm/Signup';
 
-const CheckLogin = (isLoggedIn) => {
-    const [show, setShow] = useState(false);
-    const [show1, setShow1] = useState(false);
+const CheckLogin = (isLoggedIn, handleShow1, handleShow) => {
+    // const [show, setShow] = useState(false);
+    // const [show1, setShow1] = useState(false);
 
-    const handleClose1 = () => setShow1(false);
-    const handleShow1 = () => setShow1(true);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const handleShow1 = () => {
+    //     setShow1(true);
+    //     console.log("true")
+    // }
+ 
+    // const handleShow = () => setShow(true);
 
  if (isLoggedIn){
      return (
@@ -49,7 +50,7 @@ const CheckLogin = (isLoggedIn) => {
 }
 
 const CheckNav = (isLoggedIn) => {
-    if(isLoggedIn) {
+    if(!isLoggedIn) {
         return (
             MenuItems.map((item, index) => {
                 return (
@@ -64,14 +65,15 @@ const CheckNav = (isLoggedIn) => {
         )} else {
         MenuItems2.map((item, index) => {
             return (
-          <li className="nav-li" key={index}>
-            <a className={item.cName} href={item.url}>
-                {item.title}
-            </a>
-          </li>
-          )
-        }
-        )}
+        <li className="nav-li" key={index}>
+          <a className={item.cName} href={item.url}>
+              {item.title}
+          </a>
+        </li>
+
+        )
+       }
+     )}
 }
 
 const NavBar = (props) => {
@@ -79,18 +81,18 @@ const NavBar = (props) => {
     const [show1, setShow1] = useState(false);
 
     const handleClose1 = () => setShow1(false);
-    const handleShow1 = () => setShow1(true);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     
+    const handleShow1 = () => setShow1(true);
+ 
+    const handleShow = () => setShow(true);
 
 
     const isLoggedIn = localStorage.getItem('auth_key') ? true : false
 
         return (
-            <section className="navbar" isLoggedIn={isLoggedIn}>
+            <section className="navbar1" isLoggedIn={isLoggedIn}>
                 <h1 className="navbar-logo">
                     <i className="fas fa-shuttle-van">RVbnb</i>
                 </h1>
@@ -120,17 +122,27 @@ const NavBar = (props) => {
                     }
                 } */}
 
+     {/* <li className="nav-li" >
+         <a className="nav-links" href="#" onClick={handleShow1} >
+         Sign up
+         </a>
+     </li>    
+
+     <li className="nav-li" >
+         <a className="nav-links" href="#" onClick={handleShow} >
+         Login
+         </a>
+     </li> */}
+
                     {
-                        CheckNav(props.loginState)
+                        CheckNav(props.login)
                     }
 
                     {
-                        CheckLogin(props.loginState)
+                        CheckLogin(props.login, handleShow1, handleShow)
                     }
 
-                    <li className="nav-li" >
-                    <img src="https://www.k2e.com/wp-content/uploads/2018/09/person-icon.png" class="rounded-circle" alt="Cinque Terre" height="30px" /> 
-                    </li>
+
 
 
 
