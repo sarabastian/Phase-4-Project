@@ -35,8 +35,11 @@ class SavedVanCard extends React.Component {
               </Card.Body>
               <Card.Footer>
                <Button variant="info" onClick={() => this.handleClick()}> Instant Book
-          {this.state.clicked ? <OrderForm van={this.props.van} key={this.props.van.id} departure={this.props.location.state.departure}
-                                            return={this.props.location.state.return}/> : null}
+          {this.state.clicked ? <OrderForm van={this.props.van} key={this.props.van.id} 
+                                            departure={this.props.location.state.departure}
+                                            return={this.props.location.state.return}
+                                            /> 
+                                            : null}
           </Button>
               </Card.Footer>
     

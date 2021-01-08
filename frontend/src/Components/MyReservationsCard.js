@@ -1,25 +1,40 @@
 import React from "react";
-import { Card, Button} from 'react-bootstrap';
+import { Card, Button, Jumbotron} from 'react-bootstrap';
 
 class MyReservationsCard extends React.Component {
 
+    handleCancel = () => {
+        fetch(`http://localhost:3001/api/v1/orders/${this.props.order.id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+     
+      })
+    
+        
+      
+    }
     
     render() {
 
         return(
+
             <Card className="card-img-top img-fluid">
-        
+
+           
     
             <Card.Body>
-    
+            <Card.Img variant="top" src={this.props.order.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
               <Card.Title>{this.props.order.van.name}</Card.Title>
               <Card.Text>
-                {this.props.order.van.description}
+                {this.props.order.trip_dates[0].departure_date} - {this.props.order.trip_dates[0].return_date}
               </Card.Text>
               <Card.Text>
                 <br></br>${this.props.order.van.rates}/day
         </Card.Text>
-              <Button variant="info">Explore More </Button>
+        <Button className="cancel-btn" variant="danger" onClick={()=> this.handleCancel()}>Cancel Reservation</Button>
               
                 
     

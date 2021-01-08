@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 class OrderForm extends React.Component {
 
     state = {
-        order: []
+        order: [],
+        nights: null
     }
 
 handleSubmit = () => {
@@ -26,11 +27,25 @@ handleSubmit = () => {
     .then(r => r.json())
     .then(order => {
        
-        this.props.history.push("/reservations", 
-    order, this.props.location.state.departure)})
+        this.props.history.push("/upcoming-reservations", 
+    order)})
     
 
 }
+
+handleNumber = (e) => {
+
+    this.setState({
+        nights: parseInt(e.target.value)
+    })
+}
+
+calculateTotal = () => {
+    return(
+        this.state.nights*this.props.location.state.van.rates
+        )
+}
+
 
 
     render() {
@@ -137,7 +152,41 @@ handleSubmit = () => {
                                     </Row>
                                     <br></br>
                                     <Form.Group>
-                                   
+                                    <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>Confirm Number of Nights</Form.Label>
+    <Form.Control as="select" onChange={(e) => this.handleNumber(e)}>
+      <option>30</option>
+      <option>29</option>
+      <option>28</option>
+      <option>27</option>
+      <option>26</option>
+      <option>25</option>
+      <option>24</option>
+      <option>23</option>
+      <option>22</option>
+      <option>21</option>
+      <option>20</option>
+      <option>19</option>
+      <option>18</option>
+      <option>17</option>
+      <option>16</option>
+      <option>15</option>
+      <option>14</option>
+      <option>13</option>
+      <option>12</option>
+      <option>11</option>
+      <option>10</option>
+      <option>9</option>
+      <option>8</option>
+      <option>7</option>
+      <option>6</option>
+      <option>5</option>
+      <option>4</option>
+      <option>3</option>
+      <option>2</option>
+      <option>1</option>
+    </Form.Control>
+  </Form.Group>
                                      <Row>
                                         <Col xs={3}>
                                         <Form.Label>Pick-Up & Return Location</Form.Label>
@@ -154,7 +203,10 @@ handleSubmit = () => {
                     <Card.Body>
                         <Card.Title><em>{this.props.location.state.van.name}</em></Card.Title>
                         <Card.Text>
-                            {this.props.location.state.van.description}
+                        <strong>Your total is ${this.calculateTotal()}</strong>
+                        <br></br>
+                        <br></br>
+                            
                         </Card.Text>
                         <Card.Text>
                             <br></br>${this.props.location.state.van.rates}/day
@@ -182,7 +234,7 @@ handleSubmit = () => {
                     <span class="anchor" id="formPayment"></span>
                  
 
-                    
+                   
                     <div class="card card-outline-secondary">
                         <div class="card-body">
                             <h3 class="text-center">Credit Card Payment</h3>
@@ -237,7 +289,7 @@ handleSubmit = () => {
                                 <div class="form-inline">
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                                        <input type="text" class="form-control text-right" id="exampleInputAmount" placeholder="39"></input>
+                                        <input type="text" class="form-control text-right" id="exampleInputAmount" placeholder={this.calculateTotal()}></input>
                                         <div class="input-group-append"><span class="input-group-text">.00</span></div>
                                     </div>
                                 </div>

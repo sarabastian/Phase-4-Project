@@ -18,9 +18,6 @@ class UpcomingReservations extends React.Component {
   
 }
   
-
-
-  
   render() {
   console.log(this.props.location.state)
   console.log(this.props.location.state.id)
@@ -65,8 +62,7 @@ class UpcomingReservations extends React.Component {
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      
     </Carousel.Caption>
    
   </Carousel.Item>
