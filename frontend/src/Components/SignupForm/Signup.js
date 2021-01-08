@@ -45,7 +45,7 @@ class Signup extends React.Component {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name='password' type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput} />
                 </FormGroup>
-                <Button type='submit' className="btn-lg btn-dark btn-block">Log in</Button>
+                <Button onClick={this.props.onHide} type='submit' className="btn-lg btn-dark btn-block">Log in</Button>
                 <div className="text-center pt-3">
                     Or continue with social media
                 </div>

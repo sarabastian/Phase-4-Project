@@ -11,19 +11,34 @@ import SavedVansContainer from './Components/SavedVansContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
+  state = {
+    isloggedIn: false
+  }
+
+  handleLogin = () => {
+    if(localStorage.getItem('token')) {
+      this.setState({ isloggedIn: true})
+    }
+  }
+
+  // handleLogout = () => {
+  //   if localStorage.
+  // }
+
   render() {
 
+    
+  console.log(localStorage)
 
     return (
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/" component={() => <HomePage loginState={this.state.isloggedIn} handleLogin={this.handleLogin} /> } />
             <Route path="/book" component={OrderForm} />
             <Route path="/login" component={Login} />
             <Route path="/reservations" component={UpcomingReservations} />
             <Route path="/my-vans" component={SavedVansContainer} />
-
 
 
 
