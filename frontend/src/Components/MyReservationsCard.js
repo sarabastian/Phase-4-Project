@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Button, Jumbotron} from 'react-bootstrap';
 
+
 class MyReservationsCard extends React.Component {
 
     state = {
@@ -28,8 +29,9 @@ class MyReservationsCard extends React.Component {
     render() {
 
         return(
-           
+          
             <Card className="card-img-top img-fluid">
+           
 
     {this.state.show ? 
     

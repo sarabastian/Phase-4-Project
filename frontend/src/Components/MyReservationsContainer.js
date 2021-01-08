@@ -1,6 +1,7 @@
 import React from "react";
-import { CardGroup, Jumbotron } from 'react-bootstrap';
-import MyReservationsCard from './MyReservationsCard'
+import { Card, CardGroup, Jumbotron } from 'react-bootstrap';
+import MyReservationsCard from './MyReservationsCard';
+import Navbar2 from './Navbar/Navbar2'
 
 class MyReservationsContainer extends React.Component {
 
@@ -18,12 +19,15 @@ class MyReservationsContainer extends React.Component {
     render() {
       
         return(
-          
+         
             <CardGroup >
-                  <Jumbotron fluid className="jumbo-2">
+                   <Navbar2 />
+                <Card.Header>
+                <h1>My Reservations</h1>
+                </Card.Header>
+                
 
-<h1>My Reservations</h1>
-</Jumbotron>
+
 {this.state.orders.map(order => <MyReservationsCard order={order} key={order.id} 
 
                                                  
