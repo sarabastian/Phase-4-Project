@@ -69,7 +69,7 @@ calculateTotal = () => {
 
 
 
-                <Form className="signup-order">
+                {/* <Form className="signup-order">
                 
                 <h2 className="text-center">Sign up</h2>
                 <FormGroup>
@@ -85,7 +85,7 @@ calculateTotal = () => {
                     Or continue with social media
                 </div>
                 <FacebookLoginButton/>
-            </Form>
+            </Form> */}
 
                                 <Form.Group id="formGridCheckbox">
                                     <Form.Check type="checkbox"
@@ -95,7 +95,7 @@ calculateTotal = () => {
                             
                               
                              
-                                    
+{/*                                     
                                 <Form className="login-order">
                 <h1>
                   
@@ -116,7 +116,7 @@ calculateTotal = () => {
                 <FacebookLoginButton/>
                 
             </Form>
-            
+             */}
           
             
          

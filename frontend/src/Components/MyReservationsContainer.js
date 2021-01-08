@@ -22,9 +22,9 @@ class MyReservationsContainer extends React.Component {
          
             <CardGroup >
                    <Navbar2 />
-                <Card.Header>
+               
                 <h1>My Reservations</h1>
-                </Card.Header>
+       
                 
 
 

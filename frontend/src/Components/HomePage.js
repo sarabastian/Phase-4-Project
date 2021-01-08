@@ -2,7 +2,7 @@ import React from "react";
 // import ReactDOM from 'react-dom';
 import Search from './Search'
 // import VanContainer from './VanContainer'
-import Navbar from './Navbar/Navbar';
+import Navbar2 from './Navbar/Navbar2';
 // import Login from './LoginForm/Login';
 
 
@@ -19,7 +19,7 @@ class HomePage extends React.Component {
     render() {
         return (
             <div>
-                <Navbar />
+                <Navbar2 />
 
                 <Search />
 

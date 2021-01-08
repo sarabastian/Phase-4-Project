@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Modal }
     from 'react-bootstrap';
 // import { MDBIcon, MDBContainer, MDBBtn } from 'mdbreact';
 import { FacebookLoginButton } from 'react-social-login-buttons';
+import Navbar2 from '../Navbar/Navbar2'
 
 
 class Login extends React.Component {
@@ -29,11 +30,15 @@ class Login extends React.Component {
           body: JSON.stringify({
             user: this.state
           })
-        }).then((response) => response.json())
+        }).then(response => response.json())
         .then(data => {
-              localStorage.setItem('user_id', data.user_info.user_id)
             
-          })
+              localStorage.setItem('user_id', data.user_info.user_id)
+        }
+            
+          )
+
+         
   
     }
     

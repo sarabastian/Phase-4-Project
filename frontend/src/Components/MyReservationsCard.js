@@ -19,9 +19,11 @@ class MyReservationsCard extends React.Component {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
+
      
       })
-    
+      // .then(r=> r.json())
+      // .then(alert('Reservation was canceled'))
         
       
     }
@@ -30,7 +32,7 @@ class MyReservationsCard extends React.Component {
 
         return(
           
-            <Card className="card-img-top img-fluid">
+            <Card className="">
            
 
     {this.state.show ? 
