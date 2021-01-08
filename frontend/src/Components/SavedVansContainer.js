@@ -6,8 +6,7 @@ import Navbar from './Navbar/Navbar'
 class SavedVansContainer extends React.Component {
 
     state = {
-        saved_vans: [],
-        show: true
+        saved_vans: []
     }
     componentDidMount(){
         fetch('http://localhost:3001/api/v1/saved_vans')
@@ -17,20 +16,7 @@ class SavedVansContainer extends React.Component {
         }))
     }
 
-    handleCancel = (id) => {
-        this.setState({
-            show: false
-        })
-        fetch(`http://localhost:3001/api/v1/saved_vans/${id}`, {
-        method: "DELETE",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-     
-      })
-      
-    }
+
     render() {
       console.log(this.state.saved_vans)
   
@@ -38,19 +24,18 @@ class SavedVansContainer extends React.Component {
        
             <CardDeck className="saved-card-deck">
                  <Navbar/>
-                 <Jumbotron>
+                 {/* <Jumbotron> */}
             {/* Dates Requested: {this.props.location.state.departure} - {this.props.location.state.return} */}
-            </Jumbotron>
+            {/* </Jumbotron> */}
                  <Row  > 
                      <Col >
-                    {this.state.show ? this.state.saved_vans.map(array => 
-                                    <SavedVanCard van={array.van} key={array.van.id} 
+                   {this.state.saved_vans.map(van => 
+                                    <SavedVanCard van={van} key={van.id} 
                                                 handleCancel={this.handleCancel}
                                                     // departure={this.props.location.state.departure}
                                                     // return={this.props.location.state.return}
                                                    
-                                                     />) 
-                                                    : null}
+                                                     />)}
                     
                     
                     </Col>
