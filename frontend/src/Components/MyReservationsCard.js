@@ -3,7 +3,15 @@ import { Card, Button, Jumbotron} from 'react-bootstrap';
 
 class MyReservationsCard extends React.Component {
 
+    state = {
+
+        show: true
+    }
+
     handleCancel = () => {
+        this.setState({
+            show: false
+        })
         fetch(`http://localhost:3001/api/v1/orders/${this.props.order.id}`, {
         method: "DELETE",
         headers: {
@@ -20,10 +28,10 @@ class MyReservationsCard extends React.Component {
     render() {
 
         return(
-
+           
             <Card className="card-img-top img-fluid">
 
-           
+    {this.state.show ? 
     
             <Card.Body>
             <Card.Img variant="top" src={this.props.order.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
@@ -34,7 +42,9 @@ class MyReservationsCard extends React.Component {
               <Card.Text>
                 <br></br>${this.props.order.van.rates}/day
         </Card.Text>
-        <Button className="cancel-btn" variant="danger" onClick={()=> this.handleCancel()}>Cancel Reservation</Button>
+        <Button className="cancel-btn" variant="danger" onClick={()=> this.handleCancel()}>Cancel Reservation</Button> 
+
+  
               
                 
     
@@ -42,6 +52,8 @@ class MyReservationsCard extends React.Component {
     
                  
             </Card.Body>
+
+: null }
           </Card>
         )
     }

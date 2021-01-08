@@ -5,6 +5,8 @@ import Login from '../LoginForm/Login';
 import Signup from '../SignupForm/Signup';
 
 
+
+
 const Navbar = () => {
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
@@ -48,6 +50,7 @@ const Navbar = () => {
         </nav>
         <Login show={show} onHide={handleClose}  />
         <Signup show={show1} onHide={handleClose1} />
+    
         </section>
         
     )

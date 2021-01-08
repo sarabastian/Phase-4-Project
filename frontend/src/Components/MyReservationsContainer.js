@@ -5,7 +5,7 @@ import MyReservationsCard from './MyReservationsCard'
 class MyReservationsContainer extends React.Component {
 
     state = {
-        orders: []
+        orders: [],
     }
     componentDidMount() {
         fetch('http://localhost:3001/api/v1/orders')
@@ -14,19 +14,7 @@ class MyReservationsContainer extends React.Component {
         
     }
 
-    handleCancel = () => {
-        fetch(`http://localhost:3001/api/v1/orders/${this.props.order.id}`, {
-        method: "DELETE",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-     
-      })
-    
-        
-      
-    }
+
     render() {
       
         return(
@@ -36,10 +24,12 @@ class MyReservationsContainer extends React.Component {
 
 <h1>My Reservations</h1>
 </Jumbotron>
-            {this.state.orders.map(order => <MyReservationsCard order={order} key={order.id} 
+{this.state.orders.map(order => <MyReservationsCard order={order} key={order.id} 
+
                                                  
                                                  
                                                  />)}
+            
             
         </CardGroup>
         )

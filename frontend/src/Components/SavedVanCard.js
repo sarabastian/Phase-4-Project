@@ -7,7 +7,8 @@ class SavedVanCard extends React.Component {
 
     state = {
         
-        clicked: false
+        clicked: false,
+        liked: true
       }
     
     
@@ -41,6 +42,10 @@ class SavedVanCard extends React.Component {
                                             /> 
                                             : null}
           </Button>
+
+          <Button variant="danger" onClick={() =>
+            this.props.handleCancel(this.props.van.id)} >{this.state.liked ? '♥'  : '♡'} 
+          </Button> 
               </Card.Footer>
     
             </Card>

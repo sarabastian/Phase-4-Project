@@ -6,7 +6,8 @@ import Navbar from './Navbar/Navbar'
 class SavedVansContainer extends React.Component {
 
     state = {
-        saved_vans: []
+        saved_vans: [],
+        show: true
     }
     componentDidMount(){
         fetch('http://localhost:3001/api/v1/saved_vans')
@@ -14,6 +15,21 @@ class SavedVansContainer extends React.Component {
         .then(data => this.setState({
             saved_vans: data
         }))
+    }
+
+    handleCancel = (id) => {
+        this.setState({
+            show: false
+        })
+        fetch(`http://localhost:3001/api/v1/saved_vans/${id}`, {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+     
+      })
+      
     }
     render() {
       console.log(this.state.saved_vans)
@@ -27,12 +43,14 @@ class SavedVansContainer extends React.Component {
             </Jumbotron>
                  <Row  > 
                      <Col >
-                    
-                {this.state.saved_vans.map(array => <SavedVanCard van={array.van} key={array.van.id} 
+                    {this.state.show ? this.state.saved_vans.map(array => 
+                                    <SavedVanCard van={array.van} key={array.van.id} 
+                                                handleCancel={this.handleCancel}
                                                     // departure={this.props.location.state.departure}
                                                     // return={this.props.location.state.return}
                                                    
-                                                     />)}
+                                                     />) 
+                                                    : null}
                     
                     
                     </Col>
