@@ -28,7 +28,9 @@ const CheckLogin = (isLoggedIn, handleShow1, handleShow) => {
         }} >
           Logout
         </a>
+        
         </li>   
+        
      )
  } else {
      return (
@@ -87,7 +89,6 @@ const Navbar = (props) => {
     const handleShow1 = () => setShow1(true);
  
     const handleShow = () => setShow(true);
-
 
     const isLoggedIn = localStorage.getItem('auth_key') ? true : false
 
