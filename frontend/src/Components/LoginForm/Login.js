@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 // import './Login.css';
 import { Button, Form, FormGroup, Modal }
     from 'react-bootstrap';
@@ -30,21 +31,25 @@ class Login extends React.Component {
           body: JSON.stringify({
             user: this.state
           })
-        }).then(response => response.json())
+        }).then((response) => response.json())
+        // .then(data => console.log(data.auth_key))
         .then(data => {
-            
-              localStorage.setItem('user_id', data.user_info.user_id)
-        }
-            
-          )
-
-         
-  
+            // if(token.hasOwnProperty('token')){
+                // console.log(data.auth_key)
+                console.log(data)
+                localStorage.setItem('token', data.user_info.user_id)
+                this.props.handleLogin()
+                // this.props.history.push('/')
+            // }else{
+            //     alert('login failed...')
+            // }
+        })
     }
     
 
+
     render () {
-        
+        console.log(this.props.show)
     return (
         <section>
             <Modal show={this.props.show} onHide={this.props.onHide} >
@@ -61,7 +66,7 @@ class Login extends React.Component {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name="password" type="password" placeholder="Password" onChange={this.handleInput} value={this.state.password} />
                 </FormGroup>
-                <Button type="submit" className="btn-lg btn-dark btn-block">Log in</Button>
+                <Button onClick={this.props.onHide} type="submit" className="btn-lg btn-dark btn-block">Log in</Button>
                 <div className="text-center pt-3">
                     Or continue with social media
                 </div>
@@ -69,8 +74,8 @@ class Login extends React.Component {
             </Form>
             </Modal>
         </section>
-    )
+        )
+    }
 }
-}
-export default Login;
+export default withRouter(Login);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, CardDeck, Jumbotron } from 'react-bootstrap';
 import SavedVanCard from './SavedVanCard';
-import Navbar2 from './Navbar/Navbar2'
+import Navbar from './Navbar/NavBar'
 
 class SavedVansContainer extends React.Component {
 

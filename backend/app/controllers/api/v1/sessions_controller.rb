@@ -5,7 +5,7 @@ class Api::V1::SessionsController < ApplicationController
         if @user && @user.authenticate(users_params[:password])
 
             payload = { user_id: @user.id}
-            token = JWT.encode(payload, 'Phase4')
+            token = JWT.encode(payload, 'secret')
 
             render json: { auth_key: token, user_info: payload}, :status => :ok
         else
