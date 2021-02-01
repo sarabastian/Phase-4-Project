@@ -1,8 +1,8 @@
 import React from "react";
 // import ReactDOM from 'react-dom';
-import Search from './Search'
+import Search from './Search';
 // import VanContainer from './VanContainer'
-import NavBar from './Navbar/NavBar';
+import Navbar from './Navbar/Navbar';
 // import Login from './LoginForm/Login';
 
 
@@ -14,7 +14,7 @@ class HomePage extends React.Component {
         console.log(this.props.handleLogin)
         return (
             <div>
-                <NavBar handleLogin={this.props.handleLogin} login={this.props.login} />
+                <Navbar handleLogin={this.props.handleLogin} login={this.props.login} />
 
                 <Search />
 

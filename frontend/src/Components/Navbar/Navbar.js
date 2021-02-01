@@ -76,7 +76,7 @@ const CheckNav = (isLoggedIn) => {
      )}
 }
 
-const NavBar = (props) => {
+const Navbar = (props) => {
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
 
@@ -156,4 +156,4 @@ const NavBar = (props) => {
 }
 
 
-export default withRouter(NavBar);
+export default withRouter(Navbar);

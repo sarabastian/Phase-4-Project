@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardGroup, Jumbotron } from 'react-bootstrap';
 import MyReservationsCard from './MyReservationsCard';
-import Navbar2 from './Navbar/Navbar2'
+import Navbar from './Navbar/Navbar'
 
 class MyReservationsContainer extends React.Component {
 
@@ -21,7 +21,7 @@ class MyReservationsContainer extends React.Component {
         return(
          
             <CardGroup >
-                   <Navbar2 />
+                   <Navbar />
                
                 <h1>My Reservations</h1>
        

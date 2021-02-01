@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Jumbotron, Container, Carousel } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import Navbar2  from './Navbar/Navbar2'
+import Navbar  from './Navbar/Navbar'
 
 class UpcomingReservations extends React.Component {
 
@@ -25,7 +25,7 @@ class UpcomingReservations extends React.Component {
     return (
 
 <Jumbotron fluid className="jumbo-2">
-<Navbar2 />
+<Navbar />
   <Container>
     <h1>{this.props.location.state.user.username}'s Upcoming Reservations</h1>
     

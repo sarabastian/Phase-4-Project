@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Modal }
     from 'react-bootstrap';
 // import { MDBIcon, MDBContainer, MDBBtn } from 'mdbreact';
 import { FacebookLoginButton } from 'react-social-login-buttons';
-import Navbar2 from '../Navbar/Navbar2'
+
 
 
 class Login extends React.Component {
