@@ -29,13 +29,18 @@ class SavedVansContainer extends React.Component {
             {/* </Jumbotron> */}
                  <Row  > 
                      <Col >
-                   {this.state.saved_vans.map(van => 
-                                    <SavedVanCard van={van} key={van.id} 
-                                                handleCancel={this.handleCancel}
+                     {this.state.saved_vans.map(array => <SavedVanCard van={array.van} key={array.van.id} 
                                                     // departure={this.props.location.state.departure}
                                                     // return={this.props.location.state.return}
                                                    
                                                      />)}
+                   {/* {this.state.saved_vans.map(van => 
+                                    <SavedVanCard van={van} key={van.id} 
+                                                handleCancel={this.handleCancel} */}
+                                                    {/* // departure={this.props.location.state.departure}
+                                                    // return={this.props.location.state.return}
+                                                   
+                                                     />)} */}
                     
                     
                     </Col>

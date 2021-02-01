@@ -20,7 +20,7 @@ handleSubmit = () => {
             // 'auth-key': localStorage.getItem('token')
         },
         body: JSON.stringify({
-            user_id: localStorage.user_id,
+            user_id: localStorage.token,
             van_id: this.props.location.state.van.id
         }),
     })

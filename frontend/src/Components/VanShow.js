@@ -11,7 +11,7 @@ class VanShow extends React.Component {
   }
 
   handleLikes = () => {
-
+console.log(localStorage.token)
     this.setState({
       liked: !this.state.liked
     })
@@ -23,7 +23,7 @@ class VanShow extends React.Component {
         
     },
     body: JSON.stringify({
-        user_id: localStorage.user_id,
+        user_id: localStorage.token,
         van_id: this.props.van.id
     }),
 })
