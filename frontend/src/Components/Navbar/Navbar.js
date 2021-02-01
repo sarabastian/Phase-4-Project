@@ -52,8 +52,21 @@ const CheckLogin = (isLoggedIn, handleShow1, handleShow) => {
 }
 
 const CheckNav = (isLoggedIn) => {
-    if(!isLoggedIn) {
+    if(isLoggedIn) {
         return (
+            MenuItems2.map((item, index) => {
+                return (
+            <li className="nav-li" key={index}>
+              <a className={item.cName} href={item.url}>
+                  {item.title}
+              </a>
+            </li>
+    
+            )
+           }
+         )
+        )}
+          else {
             MenuItems.map((item, index) => {
                 return (
                 <li className="nav-li" key={index}>
@@ -64,18 +77,9 @@ const CheckNav = (isLoggedIn) => {
                 )
                 } 
         )
-        )} else {
-        MenuItems2.map((item, index) => {
-            return (
-        <li className="nav-li" key={index}>
-          <a className={item.cName} href={item.url}>
-              {item.title}
-          </a>
-        </li>
+        
 
-        )
-       }
-     )}
+    }
 }
 
 const Navbar = (props) => {
