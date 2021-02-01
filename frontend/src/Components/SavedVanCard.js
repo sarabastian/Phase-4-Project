@@ -40,14 +40,14 @@ class SavedVanCard extends React.Component {
         return (
            
          
-        
+          this.state.show ? 
             <Card>
-    
+   
     <Card.Img variant="top" src={this.props.van.img_1} />
-              {/* {this.state.show ?  */}
+              
               <Card.Body>
                 {/* <Card.Img variant="top" src={this.props.van.van.img_1} /> */}
-                <Card.Title>{this.props.van.van.name}</Card.Title>
+                <Card.Title>{this.props.van.name}</Card.Title>
                 <Card.Text>
                 
                  Still available? {this.props.van.available ? 'Yes' : "No"}
@@ -64,14 +64,15 @@ class SavedVanCard extends React.Component {
           </Button>
 
           <Button variant="danger" onClick={() =>
-            this.handleCancel()} >{this.state.liked ? '♥'  : '♡'} 
+            this.handleCancel()} >{
+            this.state.liked ? '♥'  : '♡'} 
           </Button> 
               </Card.Footer>
               </Card.Body>
-               {/* : null } */}
+          
 
             </Card>
-        
+            : null  
           
         )
     }
