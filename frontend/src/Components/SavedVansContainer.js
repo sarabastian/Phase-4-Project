@@ -21,9 +21,11 @@ class SavedVansContainer extends React.Component {
       console.log(this.state.saved_vans)
   
         return(
-       
+            <div>
+            <Navbar/>
+            
             <CardDeck className="saved-card-deck">
-                 <Navbar/>
+             
                  {/* <Jumbotron> */}
             {/* Dates Requested: {this.props.location.state.departure} - {this.props.location.state.return} */}
             {/* </Jumbotron> */}
@@ -47,6 +49,7 @@ class SavedVansContainer extends React.Component {
            
                 </Row>
             </CardDeck>
+            </div>
         )
     }
 }

@@ -7,7 +7,8 @@ class VanShow extends React.Component {
   state = {
     book: false,
     liked: false,
-    dates: []
+    dates: [],
+    saved_vans: []
   }
 
   handleLikes = () => {
@@ -23,12 +24,14 @@ console.log(localStorage.token)
         
     },
     body: JSON.stringify({
-        user_id: localStorage.token,
+        user_id: this.props.user.id,
         van_id: this.props.van.id
     }),
 })
 .then(r => r.json())
-.then(van => console.log(van))
+.then(van => this.setState({
+  saved_vans: [...this.state.saved_vans, van]
+}))
 
 
   }
@@ -54,6 +57,14 @@ componentDidMount() {
     }))
 }
 
+componentDidMount() {
+  fetch('http://localhost:3001/api/v1/saved_vans')
+  .then(r=> r.json())
+  .then(result => this.setState({
+    saved_vans: result
+  }))
+}
+
   handleBooking = () => {
     this.setState({ book: true })
     
@@ -62,6 +73,9 @@ componentDidMount() {
 
   render() {
     console.log(this.state.dates.departure_date)
+
+    const alreadyLiked = this.state.saved_vans.filter(s => s.van_id === this.props.van.id && s.user_id === this.props.user.id)
+
     return (
       <>
         <div
@@ -190,9 +204,13 @@ componentDidMount() {
      
           
             <Button variant="info" onClick={this.props.closeModal}>Close</Button>
+            {alreadyLiked.length> 0 ?           
+            <Button variant="danger" > ♥
+          </Button>  :  
           <Button variant="danger" onClick={() =>
-            this.handleLikes()} >{this.state.liked ? '♥'  : '♡'} 
+            this.handleLikes()} >♡
           </Button> 
+  }
 
           </Modal.Footer>
          

@@ -1,17 +1,27 @@
 import React from 'react';
 import { Card, Button, Jumbotron } from 'react-bootstrap';
 import OrderForm from './OrderForm';
+import Navbar from './Navbar/Navbar'
 
 
-class SavedVanCard extends React.Component {
-
+export default class SavedVanCard extends React.Component {
+  
+componentDidMount(){
+    fetch('http://localhost:3001/api/v1/saved_vans')
+    .then(r => r.json())
+    .then(data => this.setState({
+        saved_vans: data
+    }))
+}
     state = {
         
         clicked: false,
         liked: true,
-        show: true
+        show: true,
+        saved_vans: []
       }
     
+   
       handleCancel = () => {
         this.setState({
             show: false,
@@ -25,8 +35,16 @@ class SavedVanCard extends React.Component {
         }
      
       })
+      .then(r => r.json())
+      .then(r => {
+        console.log(r)
+        // this.setState({
+        // saved_vans: [...saved_vans, r]
+        // })
+      })}
       
-    }
+      
+    
     
       handleClick = () => {
     
@@ -36,11 +54,12 @@ class SavedVanCard extends React.Component {
        
       }
     render() {
-
+      const van = this.props.van 
+      console.log(van)
         return (
-           
-         
-          this.state.show ? 
+           <div>
+          <Navbar/>
+          {this.state.show ? 
             <Card>
    
     <Card.Img variant="top" src={this.props.van.img_1} />
@@ -72,10 +91,12 @@ class SavedVanCard extends React.Component {
           
 
             </Card>
-            : null  
+            : null  }
           
+        
+      
+        </div>
         )
-    }
-}
 
-export default SavedVanCard;
+            }
+          }

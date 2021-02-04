@@ -140,7 +140,10 @@ class Search extends React.Component {
             </Jumbotron> 
            
              {this.state.showComponent ? <VanContainer vans={vans} departure={this.state.departure}
-                                                       return={this.state.return}/> : <About /> } 
+                                                       return={this.state.return}
+                                                   
+                                                       
+                                                       /> : <About /> } 
             
 
 </div>

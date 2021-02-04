@@ -13,25 +13,41 @@ class VanCard extends React.Component {
 
     isOpen: false,
     liked: false,
-    dates: ''
+    dates: '',
+    isloggedin: false,
+    user: {}
     // logged_in: false
   }
 
-  
-  // saveVan = () => {
-    
-  
 
+  // saveVan = () => {
+
+
+  componentDidMount() {
+    this.handleLogin();
+    fetch(`http://localhost:3001/api/v1/users/${parseInt(localStorage.token)}`)
+      .then(r => r.json())
+      .then(user => {
+        this.setState({
+
+          user: user
+        })
+      }
+      )
+  }
+
+  handleLogin = () => {
+    if (localStorage.getItem('token')) {
+      this.setState({ isloggedin: true })
+    }
+  }
   // }
 
 
   openModal = () => {
 
     this.setState({ isOpen: true })
-  
-      
-    
-  
+
   }
 
   closeModal = () => this.setState({ isOpen: false });
@@ -62,11 +78,11 @@ class VanCard extends React.Component {
             van={this.props.van}
             departure={this.props.departure}
             return={this.props.return}
-            
+            user = {this.state.user}
 
           /> : null}
 
-             
+
         </Card.Body>
       </Card>
 
