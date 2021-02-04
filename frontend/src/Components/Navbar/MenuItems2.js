@@ -4,19 +4,19 @@ export const MenuItems2 = [
         url: '/',
         cName: 'nav-links'
     },
+    // {
+    //     title: 'Rent a Van',
+    //     url: '/my-vans',
+    //     cName: 'nav-links'
+    // },
     {
-        title: 'Rent Van',
+        title: 'My Saved Vans',
         url: '/my-vans',
         cName: 'nav-links'
     },
-    {
-        title: 'Saved Van',
-        url: '/my-vans',
-        cName: 'nav-links'
-    },
-    {
-        title: 'List your van',
-        url: '#',
-        cName: 'nav-links'
-    }
+    // {
+    //     title: 'List your Van',
+    //     url: '#',
+    //     cName: 'nav-links'
+    // }
 ]
