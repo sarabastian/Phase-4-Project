@@ -23,6 +23,8 @@ class SavedVansContainer extends React.Component {
         return(
             <div>
             <Navbar/>
+            <div>
+          
             
             <CardDeck className="saved-card-deck">
              
@@ -31,7 +33,7 @@ class SavedVansContainer extends React.Component {
             {/* </Jumbotron> */}
                  <Row  > 
                      <Col >
-                     {this.state.saved_vans.map(array => <SavedVanCard van={array.van} key={array.van.id} 
+                     {this.state.saved_vans.map(v => <SavedVanCard van={v} key={v.id} 
                                                     // departure={this.props.location.state.departure}
                                                     // return={this.props.location.state.return}
                                                    
@@ -49,6 +51,7 @@ class SavedVansContainer extends React.Component {
            
                 </Row>
             </CardDeck>
+            </div>
             </div>
         )
     }

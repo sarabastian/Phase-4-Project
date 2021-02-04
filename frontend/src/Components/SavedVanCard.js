@@ -23,9 +23,11 @@ componentDidMount(){
     
    
       handleCancel = () => {
+        let updateVans = this.state.saved_vans.filter(v => v.id !== this.props.van.id)
         this.setState({
             show: false,
-            liked: false
+            liked: false,
+            saved_vans: updateVans
         })
         fetch(`http://localhost:3001/api/v1/saved_vans/${this.props.van.id}`, {
         method: "DELETE",
@@ -35,13 +37,8 @@ componentDidMount(){
         }
      
       })
-      .then(r => r.json())
-      .then(r => {
-        console.log(r)
-        // this.setState({
-        // saved_vans: [...saved_vans, r]
-        // })
-      })}
+   
+    }
       
       
     
@@ -54,22 +51,21 @@ componentDidMount(){
        
       }
     render() {
-      const van = this.props.van 
-      console.log(van)
+
         return (
            <div>
-          <Navbar/>
+
           {this.state.show ? 
             <Card>
    
-    <Card.Img variant="top" src={this.props.van.img_1} />
+    <Card.Img variant="top" src={this.props.van.van.img_1} />
               
               <Card.Body>
                 {/* <Card.Img variant="top" src={this.props.van.van.img_1} /> */}
-                <Card.Title>{this.props.van.name}</Card.Title>
+                <Card.Title>{this.props.van.van.name}</Card.Title>
                 <Card.Text>
                 
-                 Still available? {this.props.van.available ? 'Yes' : "No"}
+                 Still available? {this.props.van.van.available ? 'Yes' : "No"}
                 </Card.Text>
              
                  
