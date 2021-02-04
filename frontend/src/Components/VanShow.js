@@ -36,26 +36,26 @@ console.log(localStorage.token)
 
   }
 
-componentDidMount() {
-  fetch('http://localhost:3001/api/v1/trip_dates', {
-        method: 'POST',
+// componentDidMount() {
+//   fetch('http://localhost:3001/api/v1/trip_dates', {
+//         method: 'POST',
      
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json'
             
-        },
-        body: JSON.stringify({
-            departure_date: this.props.departure,
-            return_date: this.props.return,
-            van_id: this.props.van.id
-        }),
-    })
-    .then(r => r.json())
-    .then(dates => this.setState({
-      dates: dates
-    }))
-}
+//         },
+//         body: JSON.stringify({
+//             departure_date: this.props.departure,
+//             return_date: this.props.return,
+//             van_id: this.props.van.id
+//         }),
+//     })
+//     .then(r => r.json())
+//     .then(dates => this.setState({
+//       dates: dates
+//     }))
+// }
 
 componentDidMount() {
   fetch('http://localhost:3001/api/v1/saved_vans')
@@ -72,7 +72,7 @@ componentDidMount() {
 
 
   render() {
-    console.log(this.state.dates.departure_date)
+    console.log(this.props.departure)
 
     const alreadyLiked = this.state.saved_vans.filter(s => s.van_id === this.props.van.id && s.user_id === this.props.user.id)
 
@@ -196,8 +196,10 @@ componentDidMount() {
             pathname: "/book",
             state: {
               van: this.props.van,
-              departure: this.state.dates.departure_date,
-              return: this.state.dates.return_date
+              departure: this.props.departure,
+              return: this.props.return
+              // departure: this.props.dates.departure_date,
+              // return: this.state.dates.return_date
             }
             
            }}>   <Button variant="info"> Book Now</Button> </Link>

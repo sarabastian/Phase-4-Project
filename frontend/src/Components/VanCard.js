@@ -1,9 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import VanShow from './VanShow';
-import SavedVansContainer from './SavedVansContainer';
-import Navbar from './Navbar/Navbar';
-import { Link } from "react-router-dom";
+
 
 
 
@@ -41,8 +39,6 @@ class VanCard extends React.Component {
       this.setState({ isloggedin: true })
     }
   }
-  // }
-
 
   openModal = () => {
 
@@ -53,10 +49,9 @@ class VanCard extends React.Component {
   closeModal = () => this.setState({ isOpen: false });
 
 
-
-
   render() {
 
+    console.log(this.props.departure)
     return (
 
       <Card className="card-img-top img-fluid">

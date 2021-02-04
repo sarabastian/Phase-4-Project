@@ -31,11 +31,11 @@ class MyReservationsCard extends React.Component {
     render() {
 
         return(
-          
+          this.state.show ? 
             <Card className="">
            
 
-    {this.state.show ? 
+
     
             <Card.Body>
             <Card.Img variant="top" src={this.props.order.van.img_1} style={{ display: 'inline-block', width: '100%' }} />
@@ -57,8 +57,9 @@ class MyReservationsCard extends React.Component {
                  
             </Card.Body>
 
-: null }
+
           </Card>
+          : null 
         )
     }
 }
