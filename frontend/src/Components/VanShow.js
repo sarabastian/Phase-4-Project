@@ -91,7 +91,7 @@ componentDidMount() {
           <Modal.Header closeButton>
             <Modal.Title>{this.props.van.name} {'                         '}
               <Badge  variant="success">
-               Available for {this.state.dates.departure_date} - {this.state.dates.return_date}
+               Available for {this.props.departure} - {this.props.return}
               </Badge>  
             </Modal.Title>
           </Modal.Header>
