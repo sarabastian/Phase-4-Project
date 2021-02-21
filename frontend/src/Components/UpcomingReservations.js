@@ -24,10 +24,12 @@ class UpcomingReservations extends React.Component {
   console.log(this.props.location.state.id)
     return (
 
-<Jumbotron fluid className="jumbo-2">
+<Jumbotron fluid className="jumbo-2"> 
+
 <SavedVansNavbar />
+<h1>{this.props.location.state.user.username}'s Upcoming Reservations</h1>
   <Container>
-    <h1>{this.props.location.state.user.username}'s Upcoming Reservations</h1>
+   
     
     <Carousel className="reservation">
     
@@ -83,7 +85,7 @@ class UpcomingReservations extends React.Component {
   
   <Button className="cancel-btn" variant="danger" onClick={()=> this.handleCancel()}>Cancel Reservation</Button>
    </Link> 
-</Jumbotron>
+ </Jumbotron>
 
     )
   }
