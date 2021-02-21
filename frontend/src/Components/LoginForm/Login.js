@@ -34,15 +34,13 @@ class Login extends React.Component {
         }).then((response) => response.json())
         // .then(data => console.log(data.auth_key))
         .then(data => {
-            // if(token.hasOwnProperty('token')){
-                // console.log(data.auth_key)
+            if(data.hasOwnProperty('auth_key')){
                 console.log(data)
                 localStorage.setItem('token', data.user_info.user_id)
                 this.props.handleLogin()
-                // this.props.history.push('/')
-            // }else{
-            //     alert('login failed...')
-            // }
+            } else {
+                alert('Login Failed..')
+              }
         })
     }
     

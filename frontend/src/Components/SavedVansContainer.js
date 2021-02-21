@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, CardDeck, Jumbotron } from 'react-bootstrap';
 import SavedVanCard from './SavedVanCard';
-import Navbar from './Navbar/Navbar'
+import SavedVansNavbar from './Navbar/SavedVansNavbar'
 
 class SavedVansContainer extends React.Component {
 
@@ -21,15 +21,19 @@ class SavedVansContainer extends React.Component {
       console.log(this.state.saved_vans)
   
         return(
-       
+            <div>
+            <SavedVansNavbar/>
+            <div>
+          
+            <Jumbotron>
             <CardDeck className="saved-card-deck">
-                 <Navbar/>
+             
                  {/* <Jumbotron> */}
             {/* Dates Requested: {this.props.location.state.departure} - {this.props.location.state.return} */}
             {/* </Jumbotron> */}
-                 <Row  > 
+                 <Row > 
                      <Col >
-                     {this.state.saved_vans.map(array => <SavedVanCard van={array.van} key={array.van.id} 
+                     {this.state.saved_vans.map(v => <SavedVanCard van={v} key={v.id} 
                                                     // departure={this.props.location.state.departure}
                                                     // return={this.props.location.state.return}
                                                    
@@ -47,6 +51,9 @@ class SavedVansContainer extends React.Component {
            
                 </Row>
             </CardDeck>
+            </Jumbotron>
+            </div>
+            </div>
         )
     }
 }

@@ -27,7 +27,7 @@ class Api::V1::SavedVansController < ApplicationController
 
     def destroy
         saved_van = SavedVan.find(params[:id])
-        saved_van.delete
+        saved_van.destroy
     end
 
     private

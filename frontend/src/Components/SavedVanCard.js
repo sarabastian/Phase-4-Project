@@ -1,21 +1,33 @@
 import React from 'react';
 import { Card, Button, Jumbotron } from 'react-bootstrap';
 import OrderForm from './OrderForm';
+import Navbar from './Navbar/Navbar'
 
 
-class SavedVanCard extends React.Component {
-
+export default class SavedVanCard extends React.Component {
+  
+componentDidMount(){
+    fetch('http://localhost:3001/api/v1/saved_vans')
+    .then(r => r.json())
+    .then(data => this.setState({
+        saved_vans: data
+    }))
+}
     state = {
         
         clicked: false,
         liked: true,
-        show: true
+        show: true,
+        saved_vans: []
       }
     
+   
       handleCancel = () => {
+        let updateVans = this.state.saved_vans.filter(v => v.id !== this.props.van.id)
         this.setState({
             show: false,
-            liked: false
+            liked: false,
+            saved_vans: updateVans
         })
         fetch(`http://localhost:3001/api/v1/saved_vans/${this.props.van.id}`, {
         method: "DELETE",
@@ -25,8 +37,11 @@ class SavedVanCard extends React.Component {
         }
      
       })
-      
+   
     }
+      
+      
+    
     
       handleClick = () => {
     
@@ -38,19 +53,19 @@ class SavedVanCard extends React.Component {
     render() {
 
         return (
-           
-         
-          this.state.show ? 
+           <div>
+
+          {this.state.show ? 
             <Card>
    
-    <Card.Img variant="top" src={this.props.van.img_1} />
+    <Card.Img variant="top" src={this.props.van.van.img_1} />
               
               <Card.Body>
                 {/* <Card.Img variant="top" src={this.props.van.van.img_1} /> */}
-                <Card.Title>{this.props.van.name}</Card.Title>
+                <Card.Title>{this.props.van.van.name}</Card.Title>
                 <Card.Text>
                 
-                 Still available? {this.props.van.available ? 'Yes' : "No"}
+                 Still available? {this.props.van.van.available ? 'Yes' : "No"}
                 </Card.Text>
              
                  
@@ -72,10 +87,12 @@ class SavedVanCard extends React.Component {
           
 
             </Card>
-            : null  
+            : null  }
           
+        
+      
+        </div>
         )
-    }
-}
 
-export default SavedVanCard;
+            }
+          }

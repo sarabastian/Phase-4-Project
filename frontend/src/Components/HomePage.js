@@ -11,12 +11,11 @@ class HomePage extends React.Component {
 
 
     render() {
-        console.log(this.props.handleLogin)
         return (
             <div>
                 <Navbar handleLogin={this.props.handleLogin} login={this.props.login} />
 
-                <Search />
+                <Search handleLogin={this.props.handleLogin} login={this.props.login}/>
 
 
             </div>

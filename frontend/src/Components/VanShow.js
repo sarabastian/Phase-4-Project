@@ -7,7 +7,8 @@ class VanShow extends React.Component {
   state = {
     book: false,
     liked: false,
-    dates: []
+    dates: [],
+    saved_vans: []
   }
 
   handleLikes = () => {
@@ -23,35 +24,45 @@ console.log(localStorage.token)
         
     },
     body: JSON.stringify({
-        user_id: localStorage.token,
+        user_id: this.props.user.id,
         van_id: this.props.van.id
     }),
 })
 .then(r => r.json())
-.then(van => console.log(van))
+.then(van => this.setState({
+  saved_vans: [...this.state.saved_vans, van]
+}))
 
 
   }
 
-componentDidMount() {
-  fetch('http://localhost:3001/api/v1/trip_dates', {
-        method: 'POST',
+// componentDidMount() {
+//   fetch('http://localhost:3001/api/v1/trip_dates', {
+//         method: 'POST',
      
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json'
             
-        },
-        body: JSON.stringify({
-            departure_date: this.props.departure,
-            return_date: this.props.return,
-            van_id: this.props.van.id
-        }),
-    })
-    .then(r => r.json())
-    .then(dates => this.setState({
-      dates: dates
-    }))
+//         },
+//         body: JSON.stringify({
+//             departure_date: this.props.departure,
+//             return_date: this.props.return,
+//             van_id: this.props.van.id
+//         }),
+//     })
+//     .then(r => r.json())
+//     .then(dates => this.setState({
+//       dates: dates
+//     }))
+// }
+
+componentDidMount() {
+  fetch('http://localhost:3001/api/v1/saved_vans')
+  .then(r=> r.json())
+  .then(result => this.setState({
+    saved_vans: result
+  }))
 }
 
   handleBooking = () => {
@@ -61,7 +72,10 @@ componentDidMount() {
 
 
   render() {
-    console.log(this.state.dates.departure_date)
+    console.log(this.props.departure)
+
+    const alreadyLiked = this.state.saved_vans.filter(s => s.van_id === this.props.van.id && s.user_id === this.props.user.id)
+
     return (
       <>
         <div
@@ -77,7 +91,7 @@ componentDidMount() {
           <Modal.Header closeButton>
             <Modal.Title>{this.props.van.name} {'                         '}
               <Badge  variant="success">
-               Available for {this.state.dates.departure_date} - {this.state.dates.return_date}
+               Available for {this.props.departure} - {this.props.return}
               </Badge>  
             </Modal.Title>
           </Modal.Header>
@@ -182,17 +196,23 @@ componentDidMount() {
             pathname: "/book",
             state: {
               van: this.props.van,
-              departure: this.state.dates.departure_date,
-              return: this.state.dates.return_date
+              departure: this.props.departure,
+              return: this.props.return
+              // departure: this.props.dates.departure_date,
+              // return: this.state.dates.return_date
             }
             
            }}>   <Button variant="info"> Book Now</Button> </Link>
      
           
             <Button variant="info" onClick={this.props.closeModal}>Close</Button>
+            {alreadyLiked.length> 0 ?           
+            <Button variant="danger" > ♥
+          </Button>  :  
           <Button variant="danger" onClick={() =>
-            this.handleLikes()} >{this.state.liked ? '♥'  : '♡'} 
+            this.handleLikes()} >♡
           </Button> 
+  }
 
           </Modal.Footer>
          

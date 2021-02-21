@@ -1,7 +1,9 @@
 import React from "react";
-import { Card, CardGroup, Jumbotron } from 'react-bootstrap';
+import { Card, CardGroup, Jumbotron, Container } from 'react-bootstrap';
 import MyReservationsCard from './MyReservationsCard';
-import Navbar from './Navbar/Navbar'
+import Navbar from './Navbar/Navbar';
+import SavedVansNavbar from './Navbar/SavedVansNavbar'
+
 
 class MyReservationsContainer extends React.Component {
 
@@ -19,12 +21,19 @@ class MyReservationsContainer extends React.Component {
     render() {
       
         return(
-         
-            <CardGroup >
-                   <Navbar />
-               
+            <div>
+                <Container>
+            <SavedVansNavbar/>
+  </Container>
+            <div>
+                <Jumbotron >
+            <CardGroup  >
+                
+<Jumbotron>
                 <h1>My Reservations</h1>
-       
+
+                </Jumbotron>
+               
                 
 
 
@@ -36,6 +45,10 @@ class MyReservationsContainer extends React.Component {
             
             
         </CardGroup>
+       
+        </Jumbotron>
+        </div>
+        </div>
         )
     }
 }

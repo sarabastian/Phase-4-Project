@@ -4,6 +4,21 @@ import { Card, CardGroup } from 'react-bootstrap';
 
 class VanContainer extends React.Component {
 
+   
+
+    // componentDidMount() {
+  
+
+    //     fetch(`http://localhost:3001/api/v1/users/${parseInt(localStorage.token)}`)
+    //     .then(r => r.json())
+    //     .then(user => {
+    //         this.setState({
+             
+    //            user: user
+    //         })
+    //     }
+    //     )
+    // }
 
     render() {
 
