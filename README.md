@@ -1,5 +1,5 @@
 # RVnB
-Looking for your next adventure? Look no further with RVnB, your marketplace to browse and rent RVs, campervans, and trailers.
+Looking for your next adventure? Look no further with RVnB, your marketplace to browse, save, and rent RVs, campervans, & trailers.
 
 
 ![Alt text](https://github.com/sarabastian/RVnB/blob/post-bootcamp-changes/frontend/public/screenshot.png)
