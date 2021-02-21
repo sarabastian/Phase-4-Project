@@ -39,7 +39,7 @@ class Login extends React.Component {
                 localStorage.setItem('token', data.user_info.user_id)
                 this.props.handleLogin()
             } else {
-                alert('Login Failed..')
+                alert("Oops - we could not find you. Please try again.")
               }
         })
     }

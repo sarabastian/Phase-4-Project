@@ -28,9 +28,7 @@ const CheckLogin = (isLoggedIn, handleShow1, handleShow) => {
         }} >
           Logout
         </a>
-        
         </li>   
-        
      )
  } else {
      return (
@@ -52,21 +50,8 @@ const CheckLogin = (isLoggedIn, handleShow1, handleShow) => {
 }
 
 const CheckNav = (isLoggedIn) => {
-    if(isLoggedIn) {
+    if(!isLoggedIn) {
         return (
-            MenuItems2.map((item, index) => {
-                return (
-            <li className="nav-li" key={index}>
-              <a className={item.cName} href={item.url}>
-                  {item.title}
-              </a>
-            </li>
-    
-            )
-           }
-         )
-        )}
-          else {
             MenuItems.map((item, index) => {
                 return (
                 <li className="nav-li" key={index}>
@@ -77,12 +62,21 @@ const CheckNav = (isLoggedIn) => {
                 )
                 } 
         )
-        
+        )} else {
+        MenuItems2.map((item, index) => {
+            return (
+        <li className="nav-li" key={index}>
+          <a className={item.cName} href={item.url}>
+              {item.title}
+          </a>
+        </li>
 
-    }
+        )
+       }
+     )}
 }
 
-const Navbar = (props) => {
+const NavBar = (props) => {
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
 
@@ -93,6 +87,7 @@ const Navbar = (props) => {
     const handleShow1 = () => setShow1(true);
  
     const handleShow = () => setShow(true);
+
 
     const isLoggedIn = localStorage.getItem('auth_key') ? true : false
 
@@ -161,4 +156,4 @@ const Navbar = (props) => {
 }
 
 
-export default withRouter(Navbar);
+export default withRouter(NavBar);
