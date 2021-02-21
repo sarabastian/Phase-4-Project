@@ -94,7 +94,7 @@ const NavBar = (props) => {
         return (
             <section className="navbar1" isLoggedIn={isLoggedIn}>
                 <h1 className="navbar-logo">
-                    <i className="fas fa-shuttle-van">RVbnb</i>
+                    <i className="fas fa-shuttle-van">RVnB</i>
                 </h1>
                 <nav className="NavbarItems">
                 <ul className="nav-menu">

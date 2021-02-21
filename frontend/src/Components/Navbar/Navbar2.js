@@ -50,7 +50,7 @@ class Navbar2 extends React.Component {
                 {/* {localStorage.exists ?  */}
             <nav className="NavbarItems">
                 <h1 className="navbar-logo">
-                    <i className="fas fa-shuttle-van">RVbnb</i>
+                    <i className="fas fa-shuttle-van">RVnB</i>
                 </h1>
                 <div className="menu-icon">
                     
@@ -83,7 +83,7 @@ class Navbar2 extends React.Component {
 
       
 <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="/">RVBnB</Navbar.Brand>
+  <Navbar.Brand href="/">RVnB</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
