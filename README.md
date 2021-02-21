@@ -1,6 +1,6 @@
 # RVnB
 Looking for your next adventure? Look no further with RVnB, your marketplace to browse and rent RVs, campervans, and trailers.
-
+![alt text](file:///Users/sarabastian/Desktop/Screen%20Shot%202021-02-21%20at%202.35.40%20PM.png)
 ## Setup and Installation
 To get started, clone this repository onto your local machine.
 
