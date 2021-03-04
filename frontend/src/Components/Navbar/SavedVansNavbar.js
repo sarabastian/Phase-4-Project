@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 import { withRouter } from 'react-router';
-// import { Navbar } from 'react-bootstrap';
 import { MenuItems2 } from './MenuItems2';
 import './Navbar.css';
 import Login from '../LoginForm/Login';
@@ -25,7 +24,7 @@ const CheckNav = () => {
           
 
 
-const Navbar = () => {
+const SavedVansNavbar = () => {
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
 
@@ -104,4 +103,4 @@ const Navbar = () => {
 }
 
 
-export default withRouter(Navbar);
+export default SavedVansNavbar;

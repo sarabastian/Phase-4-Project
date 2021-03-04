@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardGroup, Jumbotron, Container } from 'react-bootstrap';
 import MyReservationsCard from './MyReservationsCard';
-import Navbar from './Navbar/Navbar';
 import SavedVansNavbar from './Navbar/SavedVansNavbar'
 
 
