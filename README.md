@@ -24,7 +24,6 @@ cd backend
 ```
 
 Install the dependencies and seed the database:
-
 ```
 bundle install
 ```
