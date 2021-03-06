@@ -28,7 +28,8 @@ const CheckLogin = (isLoggedIn, handleShow1, handleShow) => {
         }} >
           Logout
         </a>
-        </li>   
+        </li>  
+         
      )
  } else {
      return (
@@ -63,16 +64,18 @@ const CheckNav = (isLoggedIn) => {
                 } 
         )
         )} else {
-        MenuItems2.map((item, index) => {
             return (
+        MenuItems2.map((item, index) => {
+            return(
         <li className="nav-li" key={index}>
           <a className={item.cName} href={item.url}>
               {item.title}
           </a>
         </li>
-
+            )
+}
         )
-       }
+       
      )}
 }
 
