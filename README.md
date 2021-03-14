@@ -6,13 +6,7 @@ Looking for your next adventure? Look no further with RVnB, your marketplace to 
 ## Setup and Installation
 To get started, clone this repository onto your local machine.
 
-Open up your terminal, and clone down the repository.
-
-```
-git clone git@github.com:sarabastian/RVnB.git
-```
-
-In your terminal, navigate to the project directory.
+Open up your terminal, clone down the repository, and navigate to the project directory.
 
 ```
 cd RVnB
@@ -40,12 +34,21 @@ Open up another terminal, and navigate to the front-end directory.
 cd frontend
 ```
 
-Install the inlcuded packages and start the front-end server.
+Install the included packages and start the front-end server.
 ```
 npm install && npm start
 ```
 
 Once the local server has opened, you are ready to start using the app. Enjoy!
+
+
+## Contributing 
+
+Contributions are welcome. Feel free to open a pull request or branch from this project.
+
+## License 
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ### About
 
